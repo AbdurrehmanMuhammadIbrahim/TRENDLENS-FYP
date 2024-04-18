@@ -1,0 +1,106 @@
+
+
+
+    .ab-Pb-head{
+        color: aliceblue;
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 700%;
+
+    }
+
+.about-main{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0px 0px 80px 0px;
+
+    /* height: 800px; */
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+}
+.about-main p{
+    line-height: 2;
+    font-size: 14pt;
+
+}
+
+.about-container {
+    max-width: 1200px;
+   /* margin-top: 90pt; */
+   margin: 50pt auto;
+    padding: 0 20px  ;
+  }
+
+
+.about-left h1{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    margin: 20px 0px;
+    /* line-height: 1; */
+    /* padding: 0px 0px 0px 0px; */
+    /* display: inline-block; */
+    @media (min-width: 768px) {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0px 0px 40px 0px;
+    text-align: left;
+    
+}}
+.about-left p {
+    margin: 0 0 1.5em;
+    padding: 0;
+    
+}
+.about-right{
+    width: 100%;
+}
+.about-right img {
+    width: 100%;
+height: 100%;
+    @media (min-width: 768px) {
+        width: 100%;
+    }
+}
+
+/* .about-right img {
+    @media (min-width: 768px) {
+        width: 100%;
+        height: 750px;
+    }
+} */
+
+.about-left {
+    width: 100%;
+ 
+    @media (min-width: 768px) {
+        max-width: 50%;
+    }
+}
+
+
+
+    .about-cta {
+        text-transform:capitalize;
+        font-size: 14px;
+        font-weight: 600;
+        width: fit-content;
+        background-color:  rgb(255, 196, 4);
+        border: 2px solid  rgb(255, 196, 4);
+        border-radius: 3px;
+        padding: 10px 20px;
+        transition: all ease 0.3s;
+        cursor: pointer;
+        color: black;
+        margin: 40px 0px;
+      
+    }
+        .about-cta:hover {
+            background-color: rgb(7, 41, 77);
+            border-color:   rgb(7, 41, 77);
+            color: aliceblue;
+        }
+    

@@ -1,0 +1,144 @@
+
+.search-modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: white;
+    transform: translateY(100%);
+    animation: slideSearchWindow 0.5s ease forwards;
+}
+
+.form-fieldSR {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    @media (min-width: 768px) {
+        padding: 20px 0;
+    }
+}
+
+.form-fieldSR input {
+    width: 100%;
+    max-width: 1200px;
+    height: 50px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #212121;
+    outline: none;
+    border: none;
+    /* text-transform: uppercase; */
+
+    @media (min-width: 768px) {
+        height: 30px; 
+        font-size: 25px;
+    }
+
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.close-btnSR {
+    position: absolute;
+    font-size: 25px;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+        /* right: 40px; */
+        font-size: 50px;
+    }
+}
+
+.search-result-content {
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+        max-width: 800px;
+    }
+}
+
+.start-msg {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.search-results {
+    height: calc(100vh - 110px);
+    overflow: auto;
+    margin: 20px 0;
+
+    @media (min-width: 768px) {
+        height: calc(100vh - 160px);
+    }
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.SRimage-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.SRimage-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.prodSR-details {
+    overflow: hidden;
+}
+
+.nameSR {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: block;
+}
+
+.descSR {
+    font-size: 14px;
+    line-height: 1;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideSearchWindow {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

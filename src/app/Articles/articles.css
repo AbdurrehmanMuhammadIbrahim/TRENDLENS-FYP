@@ -1,0 +1,44 @@
+.articles-container {
+    /* margin: 50px 0; */
+    max-width: 1340pt;
+    /* margin: 25px 0px; */
+    margin:50pt auto;
+    padding: 0 20px;
+    @media  (min-width: 768px)  {
+        margin: 75px 0;
+    }
+}
+    .sec-heading {
+        margin:auto;
+        padding: 0 20px;
+        margin-bottom: 20px;
+        font-size: 12pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        @media  (min-width: 768px)  {
+            margin-bottom: 35px;
+            font-size: 18px;
+        }
+        &:after {
+            content: "";
+            display: block;
+            margin-top: 5px;
+            width: 50px;
+            height: 3px;
+            background-color: #f3c809;
+            @media  (min-width: 768px)  {
+                margin-top: 10px;
+            }
+        }
+    }
+    .articles {
+        /* margin: 25px 0px; */
+        margin:auto;
+        padding: 0 20px;
+        display: flex;
+        flex-flow: wrap;
+        gap: 10px;
+        @media  (min-width: 768px)  {
+            gap: 20px;
+        }
+    }

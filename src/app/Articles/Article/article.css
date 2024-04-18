@@ -1,0 +1,82 @@
+.PRproduct-card {
+    cursor: pointer;
+    width: calc(50% - 5px);
+    margin-bottom: 20px;
+    overflow: hidden;
+    @media  (min-width: 768px)  {
+        width: calc(25% - 15px);
+        
+    }}
+    .PRthumbnail {
+        width: 100%;
+      
+        /* max-height:180px; */
+        /* background-color: rgba(0, 0, 0, 0.05); */
+        margin-bottom: 10px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        /* @media  (min-width: 508px)  {
+            width: 100%;
+            min-height: 150px;
+           max-height:180px;
+        } */
+    }
+    .PRthumbnail img {
+        width: 100%;
+            transition: all ease 0.3s;
+            display: block;
+            min-height: 160px!important;
+            max-height: 160px!important;
+            border-radius: 10px;
+    }    
+    .PRthumbnail:hover img {
+        transform: scale(1.2); 
+      }
+    
+    /* .prod-details {
+    } */
+        .arc-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            display: block;
+            margin: 0px auto;
+            text-align: center;
+            text-transform:capitalize;
+            /* text-overflow: ellipsis; */
+            /* white-space: nowrap; */
+            /* overflow: hidden; */
+            @media  (min-width: 768px)  {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+        /* .PRprice {
+            font-size: 18px;
+            @media  (min-width: 768px)  {
+                font-size: 18px;
+            }
+        }
+     */
+     
+          
+        .arc_btn{
+            width:50%; 
+            margin: 0px auto;
+            font-size:12px;
+
+                    background-color:#fcb900; 
+                    border-radius: 5px;
+                    border-color: #fcb900;
+                     color: black; 
+                     font-weight: 600;
+                      padding: 7px; 
+                      text-align:center;
+                     
+                    
+           }
+           .arc_btn:hover  {
+               transform: scale(1.1); /* Increase the scale factor to make it zoom more */
+             }
