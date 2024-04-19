@@ -2,6 +2,7 @@
 import "./SingleArticle.css"
 import useFetch from "../../hooks/useFetch ";
 import { useParams } from 'next/navigation'
+import RelatedProducts from "./RelatedProduct/page";
 // import { fetchDataFromApi } from "../../utils/api";
 // import { Context } from "../../utils/context";
 
@@ -9,7 +10,9 @@ export default function SingleArticle() {
   const title = useParams()
 const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}`);
 // console.log(data)
+const article = data?.data[0].attributes;
 
+// console.log ("id---",title)
 
   return (
     <>
@@ -40,6 +43,13 @@ const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.Sin
               {data?.data[0]?.attributes?.desc}
               </p>
             </div>
+          </div>
+
+          <div>
+            <RelatedProducts 
+            SingleArticleId={title}
+                    CategoryId={article?.categories.data[0].id}
+                    />
           </div>
 
         </div>

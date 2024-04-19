@@ -11,6 +11,9 @@ const Article = ({ data, title }) => {
     // window.location.reload(false);
 
     const truncateText = (text, maxLength) => {
+        if (!text) {
+            return ''; // Return an empty string if text is null or undefined
+        }
         if (text.length > maxLength) {
             return text.substring(0, maxLength) + '...';
         } else {

@@ -14,6 +14,15 @@ import Search from "../Search/page";
 
 
 
+const navItems = [
+    { text: 'Home', href: '/' },
+    { text: 'Dropdown', isDropdown: true }, 
+    { text: 'Articles', href: '/Articles/AllArticles' },
+    { text: 'About', href: '/About' },
+    { text: 'Contact Us', href: '/Contact' },
+    { text: 'Add-Article', href: '/AddArticle' },
+
+];
 
 
 
@@ -30,15 +39,6 @@ const Header = () => {
 
 
 
-    const navItems = [
-        { text: 'Home', href: '/' },
-        { text: 'Dropdown', isDropdown: true }, 
-        { text: 'Articles', href: '/Articles/AllArticles' },
-        { text: 'About', href: '/About' },
-        { text: 'Contact Us', href: '/Contact' },
-        // { text: 'Privacy&policy', href: '/privacy' },
-    
-    ];
     
     const handleScroll = () => {
         const offset = window.scrollY;

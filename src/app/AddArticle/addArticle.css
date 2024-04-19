@@ -1,0 +1,105 @@
+
+
+/* **************************LEAVE A COMMENT CSSSSSSS******************** */
+.sing-main{
+    max-width: 1340pt;
+    /* margin: 25px 0px; */
+    margin:50pt auto;
+    padding: 0 20px;
+    @media (min-width: 568px) {
+        padding: 0 15%;
+    }
+}
+
+.arc-head {
+    margin: 1%;
+    margin-bottom: 1ch;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    color: rgb(7, 41, 77);
+}
+
+.arc-inp-name {
+    /* display: flex; */
+    width: 100%;
+    gap: 15px;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+
+    /* margin: 0%!important; */
+
+}
+
+.arc-inp {
+    /* padding:  50px 50px 50px; */
+    /* color: rgb(138, 138, 138, 0.05); */
+    margin-bottom: 100px;
+}
+
+.arc-inp input {
+    /* padding: 10px 12px; */
+    margin: 1% 0%;
+    padding: 0px 5px;
+    /* background-color: rgb(138, 138, 138,0.05); */
+    color: hsl(0, 0%, 3%);
+    font-weight: 600;
+    width: 100%;
+    overflow: hidden;
+    height: 45px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 0.1px solid rgb(138, 138, 138, 0.5);
+}
+
+.arc-inp textarea {
+    padding: 10px 12px;
+    margin: 3% 0%;
+    background-color: rgb(138, 138, 138, 0.05);
+    color: #000000;
+    font-weight: 500;
+    line-height: 23px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    height: 145px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 0.5px solid rgb(138, 138, 138, 0.5);
+}
+
+#InpID::placeholder {
+    color: rgb(138, 138, 138, 0.5);
+}
+#arc-InpFile{
+    padding: 10px 12px;
+}
+#arc-InpFile p{
+    color: #000;
+}
+.arc-Btn {
+    margin: 1% 0%;
+    /* width: 100px; */
+    padding: 0px 20px;
+    cursor: pointer;
+    background-color: rgb(7, 41, 77);
+    height: 45px;
+    font-weight: 600;
+    color: aliceblue;
+    font-size: 17px;
+    border-radius: 3px;
+    text-align: center;
+    /* margin: 1% ; */
+    /* margin-left: 2%; */
+    line-height: 50px;
+
+    &:hover {
+        /* opacity: 0.6; */
+        background-color: #ffc600;
+        color: #000;
+    }
+}

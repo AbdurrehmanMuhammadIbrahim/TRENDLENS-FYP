@@ -17,7 +17,7 @@ const Home= () => {
   }, []);
 
   const getarticles = () => {
-    fetchDataFromApi("/api/articles?populate=*&sort=createdAt:desc").then((res) => {
+    fetchDataFromApi("/api/articles?populate=*&pagination[start]=0&pagination[limit]=8&sort=createdAt:desc").then((res) => {
       console.log("Arc-data",res)
       setArticles(res);
     });
