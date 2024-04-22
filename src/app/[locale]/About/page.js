@@ -2,12 +2,13 @@
 import React, { useEffect, useContext } from "react";
 // import AppBar from "../Appbar"
 import "./about.css"
-import HeroBanner from "../components/HeroBanner/page";
+import HeroBanner from "../../components/HeroBanner/page";
 // import Container from '@mui/material/Container';
 // import img1 from "../../assets/social-media-blog-concept-futuristic-icon-design-graphics-hand-with-smartphone_102583-6104.avif"
-import { Context } from "../utils/context";
-import { fetchDataFromApi } from "../utils/api";
+import { Context } from "../../utils/context";
+import { fetchDataFromApi } from "../../utils/api";
 import Link from "next/link";
+import Header from "../../components/Header/page";
 
 
 export default function About() {
@@ -27,7 +28,7 @@ export default function About() {
         
     return (
         <div>
-
+{/* <Header/> */}
 <HeroBanner name="About"/>
             <div>
                 <div className="about-container"  >

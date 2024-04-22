@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useContext } from "react";
 import "./Contact.css"
-import HeroBanner from "../components/HeroBanner/page";
+import HeroBanner from "../../components/HeroBanner/page";
+import Header from "../../components/Header/page";
 // import AppBar from "../Appbar"
 // import Container from '@mui/material/Container';
 
@@ -30,6 +31,7 @@ export default function Contact() {
   return (
     <div >
       {/* <AppBar /> */}
+      {/* <Header/> */}
 
 <HeroBanner name="Contact-Us"/>
       {/* <div className='Div1'>

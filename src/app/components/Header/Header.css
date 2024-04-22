@@ -17,10 +17,11 @@
 }
 
 .trend-head{
-  margin: 5px ;
+  margin:7px 0px ;
   font-size: 22pt;
-  font-family: cursive;
+  /* font-family: cursive; */
   font-style: italic;
+  font-family: cursive;
 
 }
     .header-content {
@@ -35,6 +36,7 @@
 
         list-style-type: none;
         display: flex;
+        
         gap: 20px;
         color: whitesmoke;
         @media (min-width: 768px) {
@@ -43,9 +45,9 @@
            
         }}
         .left li {
-            font-size: 14px;
+            font-size: 16pt;
             font-weight: 600;
-            text-transform: uppercase;
+            text-transform:capitalize;
             cursor: pointer;
             color: aliceblue;
 

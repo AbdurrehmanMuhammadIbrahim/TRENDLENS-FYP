@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import useFetch from "../../hooks/useFetch ";
+import useFetch from "../../../hooks/useFetch ";
 import Articles from "../../Articles/page";
 import "./Category.css";
 import HeroBanner from '@/app/components/HeroBanner/page';
@@ -12,7 +12,7 @@ const Category = () => {
     // const router = useRouter();
     // const { id } = router.query;
     const { data } = useFetch(
-        `/api/articles?populate=*&[filters][categories][title]=${title.CategoryId}`
+        `/api/articles?populate=*&locale=${title.locale}&[filters][categories][title]=${title.CategoryId}`
     
 
     );

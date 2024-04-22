@@ -4,11 +4,14 @@ import Link from 'next/link';
 import "./Header.css";
 import { fetchDataFromApi } from "../../utils/api";
 import { Context } from "../../utils/context";
-
+import { useTranslations } from "next-intl";
+import { useParams } from 'next/navigation';
 
 
 
 const Dropdown = () => {
+  const text = useTranslations("Home");
+const locale = useParams();
     const [isActive, setIsActive] = useState(false);
     const { categories, setCategories } = useContext(Context);
     const dropdownRef = useRef(null);
@@ -46,7 +49,7 @@ const Dropdown = () => {
                     setIsActive(!isActive);
                 }}
                 className="dropdown-btn">
-Categories
+{text("Dropdown-link")}
                 {/* {selected} */}
                 <span
                     className={isActive ? "fas fa-caret-up" : "fas fa-caret-down"}
@@ -67,7 +70,7 @@ Categories
                 >
                   
                    
-                    <Link href={`/Category/${item?.attributes.title}`} 
+                    <Link href={`/${locale.locale}/Category/${item?.attributes.title}`} 
                      className='drop-Link'
                   
                      >

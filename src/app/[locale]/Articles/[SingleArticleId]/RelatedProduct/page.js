@@ -1,5 +1,5 @@
 import React from "react";
-import useFetch from "../../../hooks/useFetch ";
+import useFetch from "../../../../hooks/useFetch ";
 import Articles from "../../../Articles/page";
 import { useParams } from 'next/navigation'
 
@@ -8,7 +8,7 @@ const RelatedProducts = ({ CategoryId, SingleArticleId }) => {
     const title = useParams()
 
     const { data } = useFetch(
-        `/api/articles?populate=*&filters[id][$ne]=${SingleArticleId}&filters[categories][id]=${CategoryId}&pagination[start]=0&pagination[limit]=4`
+        `/api/articles?populate=*&filters[id][$ne]=${SingleArticleId}&filters[categories][id]=${CategoryId}&locale=${title.locale}&pagination[start]=0&pagination[limit]=4`
    
    
     );

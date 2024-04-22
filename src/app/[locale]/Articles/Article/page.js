@@ -1,14 +1,20 @@
 "use client"
 import React from "react";
+import { useParams } from 'next/navigation'
+import { useTranslations } from "next-intl";
+
 // import { useNavigate } from "react-router-dom";
 import "./article.css";
-import Image from "next/image";
-import img1 from "../../assets/img1.jpeg"
+// import Image from "next/image";
+// import img1 from "../../assets/img1.jpeg"
 import Link from "next/link";
 
 const Article = ({ data, title }) => {
     // const navigate = useNavigate();
     // window.location.reload(false);
+    const t = useTranslations("Home");
+
+    const locale = useParams()
 
     const truncateText = (text, maxLength) => {
         if (!text) {
@@ -45,9 +51,9 @@ const Article = ({ data, title }) => {
             {truncateText(data?.title, 40)}
              
             </div>
-          <Link style={{textDecoration:"none"}} href={`/Articles/${data?.title}`}>
+          <Link style={{textDecoration:"none"}} href={`/${locale.locale}/Articles/${data?.title}`}>
 
-          <div className="arc_btn">Read More</div>
+          <div className="arc_btn">{t("read-btn")}</div>
           </Link>
             
         </div>

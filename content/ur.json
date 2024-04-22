@@ -1,0 +1,18 @@
+{
+  "Home": {
+    "navigation": {
+      "home": "Heim",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    },
+    "read-btn":"مزید پڑھیں",
+    "title": "ٹرینڈ-لینس",
+    "Home-link": "ھوم",
+    "Dropdown-link": "اقسام",
+    "Articles-link": "آرٹیکل",
+    "About-link": "تعارف",
+    "Contact-link": "  رابطہ",
+    "Add-Article-link": "آرٹیکل شامل "
+   
+  }
+}

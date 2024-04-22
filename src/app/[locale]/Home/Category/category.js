@@ -1,8 +1,9 @@
 import Link from "next/link";
 import "./category.css";
+import { useParams } from 'next/navigation';
 
 const Category = ({ categories }) => {
-    // const navigate = useNavigate();
+    const locale = useParams();
     return (
         <div className="read-by-category" >
           <div className='cat-head '>
@@ -30,7 +31,7 @@ const Category = ({ categories }) => {
                      
 
 
-                     <Link className="cat_link" href={`/Category/${item?.attributes.title}`}>
+                     <Link className="cat_link" href={`${locale.locale}/Category/${item?.attributes.title}`}>
 
 
                             <div className="cat_btn">{item?.attributes.title}</div>

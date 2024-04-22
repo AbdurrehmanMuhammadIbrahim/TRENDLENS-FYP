@@ -1,14 +1,16 @@
 "use client";
 import React,{useContext,useEffect} from 'react'
-import Slider from '../Slider/page';
+import Slider from '../../components/Slider/page';
 import Blogs from './Blogs/page';
-import { fetchDataFromApi } from "../utils/api";
-import { Context } from "../utils/context";
-import Newsletter from '../components/NewsLetter/page';
+import { fetchDataFromApi } from "../../utils/api";
+import { Context } from "../../utils/context";
+import Newsletter from '../../components/NewsLetter/page';
 import Category from './Category/category';
 import Article from "../Articles/page";
+import { useParams } from 'next/navigation';
 
 const Home= () => {
+  const locale = useParams();
   const { categories, setCategories,articles,setArticles, } = useContext(Context);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const Home= () => {
   }, []);
 
   const getarticles = () => {
-    fetchDataFromApi("/api/articles?populate=*&pagination[start]=0&pagination[limit]=8&sort=createdAt:desc").then((res) => {
+    fetchDataFromApi(`/api/articles?populate=*&locale=${locale.locale}&pagination[start]=0&pagination[limit]=8&sort=createdAt:desc`).then((res) => {
       console.log("Arc-data",res)
       setArticles(res);
     });
@@ -25,7 +27,7 @@ const Home= () => {
 
   
   const getCategories = () => {
-    fetchDataFromApi("/api/categories?populate=*").then((res) => {
+    fetchDataFromApi(`/api/categories?populate=*&locale=${locale.locale}`).then((res) => {
       console.log("data",res)
         setCategories(res);
     });

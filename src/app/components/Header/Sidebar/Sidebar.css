@@ -80,15 +80,18 @@ left: 10px;
 .sidebar-link {
     color: whitesmoke;
     text-decoration: none;
-    padding: 10px 50% 10px 0px;
+    padding: 10px 40% 10px 0px;
 }
-/* .textCT {
-    text-transform: uppercase;
-    font-size: 14px;
-font-weight: 500;
+.sd-li{
+    margin-top: 20;
+    margin-left:6;
+    
 
-} */
+}
 
+/* .sd-li {
+    padding:10px;
+    background-color:"rgba(75,137,201,1)";border-color:"cadetblue";border-radius:5;width:"95vw";font-size:"25px";font-weight:500;color:" rgba(7,41,77,1)";text-align:"left";text-transform:"capitalize";margin-bottom:10} */
 /* .text:hover {
     opacity: 0.5;
 } */
@@ -154,9 +157,9 @@ font-weight: 500;
 } */
 
 
-.button {
+/* .button {
     padding: 20px 15px;
-}
+} */
 
 .checkout-cta {
     outline: 0;

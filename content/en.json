@@ -1,0 +1,17 @@
+{
+  "Home": {
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "contact": "Contact Us"
+    },
+    "read-btn":"Read More",
+    "title": "TREND-LENS",
+    "Home-link": "Home",
+    "Dropdown-link": "Categories",
+    "Articles-link": "Articles",
+    "About-link": "About",
+    "Contact-link": "Contact Us",
+    "Add-Article-link": "Add-Article"
+  }
+}

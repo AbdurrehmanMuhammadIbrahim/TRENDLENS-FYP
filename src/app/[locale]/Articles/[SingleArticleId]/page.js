@@ -1,6 +1,7 @@
 "use client"
+import React,{useState,useEffect} from "react";
 import "./SingleArticle.css"
-import useFetch from "../../hooks/useFetch ";
+import useFetch from "../../../hooks/useFetch ";
 import { useParams } from 'next/navigation'
 import RelatedProducts from "./RelatedProduct/page";
 // import { fetchDataFromApi } from "../../utils/api";
@@ -8,18 +9,28 @@ import RelatedProducts from "./RelatedProduct/page";
 
 export default function SingleArticle() {
   const title = useParams()
-const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}`);
+const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}&locale=${title.locale}`);
 // console.log(data)
-const article = data?.data[0].attributes;
+const article = data?.data[0]?.attributes;
 
 // console.log ("id---",title)
 
+const [label, setLabel] = useState();
+useEffect(() => {
+if(title.locale === 'ur'){
+  setLabel({textAlign:"right",fontFamily:"Jameel Noori Nastaleeq",fontSize:"18pt",wordSpacing:"3pt" })
+}
+else if(title.locale === 'en'){
+  setLabel({textAlign:"left",fontFamily:"Garamond",fontSize:"16pt"})
+}
+
+},[title]);
   return (
     <>
       <div>
      
 
-        <div className="sing-main">
+        <div className="sing-main" >
           <div style={{ borderBottom: "1px solid #8a8a8a8a", marginBottom: 50, marginTop: 20 }}>
             <div className='all-sig-blog-img'>
             <img 
@@ -37,9 +48,9 @@ const article = data?.data[0].attributes;
                 <p>2 comments</p>
               </div>
             </div>
-            <div className="sing-text">
-              <h1 style={{ color: "black", textTransform: "capitalize",margin:"20px 0px" }}>{data?.data[0]?.attributes?.title}</h1>
-              <p>
+            <div className="sing-text" style={label}>
+              <h1 style={{ color: "black", textTransform: "capitalize",margin:"20px 0px",}}>{data?.data[0]?.attributes?.title}</h1>
+              <p style={label}>
               {data?.data[0]?.attributes?.desc}
               </p>
             </div>

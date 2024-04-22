@@ -3,10 +3,11 @@ import { MdClose } from "react-icons/md";
 import "./Search.css";
 import useFetch from "../../hooks/useFetch ";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const Search = ({ setSearchModal }) => {
     const [query, setQuery] = useState("");
-    // const navigate = useNavigate();
+    const locale = useParams();
 
     const onChange = (e) => {
         setQuery(e.target.value);
@@ -14,7 +15,7 @@ const Search = ({ setSearchModal }) => {
 
     let { data } = useFetch(
         // `/api/articles?populate=*&?filters[desc][title][$contains]=${query}`
-                `/api/articles?populate=*&filters[title][$contains]=${query}`
+                `/api/articles?populate=*&locale=${locale.locale}&filters[title][$contains]=${query}`
 
     );
 
