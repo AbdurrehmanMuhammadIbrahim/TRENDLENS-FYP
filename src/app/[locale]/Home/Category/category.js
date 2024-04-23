@@ -34,7 +34,7 @@ const Category = ({ categories }) => {
                      <Link className="cat_link" href={`${locale.locale}/Category/${item?.attributes.title}`}>
 
 
-                            <div className="cat_btn">{item?.attributes.title}</div>
+                            <div className="cat_btn">{item?.attributes.title} / {item?.attributes.urduTitle}</div>
                             </Link>
                         </div>
        

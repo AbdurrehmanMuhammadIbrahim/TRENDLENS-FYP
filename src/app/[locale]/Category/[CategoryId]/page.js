@@ -16,12 +16,13 @@ const Category = () => {
     
 
     );
+
     // console.log("data",data)
     console.log('ID:', title);
     return (
         <div className="category-main-content">
 <HeroBanner name={
-                        data?.data[0]?.attributes?.categories?.data[0].attributes.title
+                       data?.data[0]?.attributes?.categories?.data[0].attributes.title 
                     }/>
 
             <div className="layout">

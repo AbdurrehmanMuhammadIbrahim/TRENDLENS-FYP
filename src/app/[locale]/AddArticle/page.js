@@ -1,42 +1,62 @@
 "use client"
 import React, { useState } from 'react'
 import "./addArticle.css"
+import axios from 'axios';
+import { useParams } from 'next/navigation';
 
 function AddArticle() {
+  const locale = useParams();
+  console.log(locale.locale)
+  
   const [formData, setFormData] = useState({
     title: '',
     desc: '',
-    publishedAt: null,
-    categories:[{title:"Religious"},]
-    // image: null,
-    
+    image: " ",
+locale:" ",
     // Add other form fields here
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    //   setFormData({ ...formData, [e.target.name]: e.target.value });
+    // };
 
+    if (e.target.type === 'file') {
+      setFormData({ ...formData, image: e.target.files[0] }); // Store uploaded image
+    }
+    else {
+      setFormData({ ...formData, [e.target.name]: e.target.value }); // Handle other form fields
+    }
+  };
 
   const handleSubmit = async (e) => {
     console.log(formData)
+    e.preventDefault();
+
+    const formDataToSend = new FormData(); // Use FormData for multipart data
+    formDataToSend.append('data', JSON.stringify({
+      title: formData.title,
+      desc: formData.desc,
+      locale:formData.locale,
+      publishedAt: null,
+
+    }));
+    formDataToSend.append('files.image', formData.image); // Append image file
+
+
     try {
+      const response = await axios.post("http://localhost:1337/api/articles", formDataToSend, {
 
-      const form = new FormData();
-      form.append('files', formData.image); // append file
-      form.append('data', JSON.stringify(formData)); // append other form data
-
-      const response = await fetch('http://localhost:1337/api/articles', {
-        method: 'POST',
-        body: form,
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
 
 
       });
-      if (response.ok) {
-        console.log('Article created successfully');
-      } else {
-        console.error('Failed to create article');
-      }
+      // if (response.ok) {
+      console.log('Article created successfully', response.data);
+      // } else {
+      //   console.error('Failed to create article');
+      // }
 
 
 
@@ -44,6 +64,7 @@ function AddArticle() {
 
     } catch (error) {
       console.error('Error creating article:', error);
+      alert("please select language" , error)
     }
 
 
@@ -61,14 +82,24 @@ function AddArticle() {
 
                 <input placeholder='title' name="title" type="text" id='arc-InpID' value={formData.title}
                   onChange={handleChange} />
+
               </div>
 
               <div style={{ margin: " 3% 0%" }}>
                 <h4>Please select an image</h4>
-                <input type="file" accept="image/*" id='arc-InpFile' name="image" value={formData.image} onChange={handleChange} />
+                <input type="file" accept="image/*" id='arc-InpFile' name="image" onChange={handleChange} />
 
               </div>
+              <div>
 
+                <h4 for="cars">Please select a language:</h4>
+                <select  name="locale" value={formData.locale} onChange={handleChange}  id='arc-InpSlt' >
+                <option value=""> select language </option>
+                  <option  value={"en"}>ENGLISH</option>
+                  <option value={"ur"}>URDU / اردو</option>
+                </select>
+
+              </div>
             </div>
 
             <div>
@@ -85,43 +116,3 @@ function AddArticle() {
 
 export default AddArticle;
 
-
-// "use client"
-// import React, { useState } from 'react';
-
-// const FileUpload = () => {
-//   const [file, setFile] = useState(null);
-
-//   const handleFileChange = (e) => {
-//     setFile(e.target.files[0]);
-//   };
-
-//   const handleUpload = async () => {
-//     try {
-//       const formData = new FormData();
-//       formData.append('files', file);
-
-//       const response = await fetch('http://localhost:1337/api/upload', {
-//         method: 'POST',
-//         body: formData,
-//       });
-
-//       if (response.ok) {
-//         console.log('File uploaded successfully');
-//       } else {
-//         console.error('Failed to upload file');
-//       }
-//     } catch (error) {
-//       console.error('Error uploading file:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <input type="file" onChange={handleFileChange} />
-//       <button onClick={handleUpload}>Upload File</button>
-//     </div>
-//   );
-// };
-
-// export default FileUpload;

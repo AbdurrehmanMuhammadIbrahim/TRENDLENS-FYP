@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import "./Login.css";
 import { useRouter } from 'next/navigation';
-import { storeUser } from "../../utils/utils";
+import { storeUser } from "../../../utils/utils";
 import Link from "next/link"
 
 

@@ -74,7 +74,7 @@ const locale = useParams();
                      className='drop-Link'
                   
                      >
-                                        {item?.attributes.title}
+                                        {item?.attributes.title} / {item?.attributes.urduTitle}
                                     </Link>
                                  
                 </div>

@@ -54,7 +54,20 @@
     border-radius: 3px;
     border: 0.1px solid rgb(138, 138, 138, 0.5);
 }
-
+.arc-inp select {
+    /* padding: 10px 12px; */
+    margin: 1% 0%;
+    padding: 0px 5px;
+    /* background-color: rgb(138, 138, 138,0.05); */
+    color: hsl(0, 0%, 3%);
+    font-weight: 600;
+    width: 100%;
+    overflow: hidden;
+    height: 45px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 0.1px solid rgb(138, 138, 138, 0.5);
+}
 .arc-inp textarea {
     padding: 10px 12px;
     margin: 3% 0%;

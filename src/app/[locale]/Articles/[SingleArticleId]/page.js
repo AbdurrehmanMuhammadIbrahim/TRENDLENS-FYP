@@ -4,7 +4,7 @@ import "./SingleArticle.css"
 import useFetch from "../../../hooks/useFetch ";
 import { useParams } from 'next/navigation'
 import RelatedProducts from "./RelatedProduct/page";
-// import { fetchDataFromApi } from "../../utils/api";
+import { useTranslations } from "next-intl";
 // import { Context } from "../../utils/context";
 
 export default function SingleArticle() {
@@ -12,6 +12,7 @@ export default function SingleArticle() {
 const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}&locale=${title.locale}`);
 // console.log(data)
 const article = data?.data[0]?.attributes;
+const t = useTranslations("Home");
 
 // console.log ("id---",title)
 
@@ -65,8 +66,8 @@ else if(title.locale === 'en'){
 
         </div>
         <div className="sing-main">    
-<div className='blg-leave'>
-        LEAVE A COMMENT
+<div className='blg-leave' style={label}>
+        {t("comment-text")}
     </div>
     <div className='blg-inp'>
     <div className='blg-inp-name'>

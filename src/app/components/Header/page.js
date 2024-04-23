@@ -46,7 +46,7 @@ const locale =useParams();
     useEffect(() => {
     if(locale.locale === 'ur'){
       setFlex({flexDirection:"row-reverse"})
-        setLabel({fontSize:"20pt",gap:30,fontFamily:'Jameel Noori Nastaleeq',margin:"0px auto"})
+        setLabel({fontSize:"18pt",gap:30,fontFamily:'Jameel Noori Nastaleeq',margin:"0px auto"})
     }
     // else if(locale.locale === 'en'){
     //   setLabel({textAlign:"left"})

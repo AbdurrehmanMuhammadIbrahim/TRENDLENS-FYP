@@ -102,9 +102,9 @@ font-family:'Times New Roman', Times, serif;
 .blg-leave {
     margin: 1%;
     margin-bottom: 1ch;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 32px;
+    /* font-size: 22px; */
+    font-weight: 900;
+    /* line-height: 32px; */
     color: rgb(7, 41, 77);
 }
 

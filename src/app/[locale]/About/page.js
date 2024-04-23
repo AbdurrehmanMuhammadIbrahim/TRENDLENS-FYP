@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext,useState } from "react";
 // import AppBar from "../Appbar"
 import "./about.css"
 import HeroBanner from "../../components/HeroBanner/page";
@@ -9,18 +9,30 @@ import { Context } from "../../utils/context";
 import { fetchDataFromApi } from "../../utils/api";
 import Link from "next/link";
 import Header from "../../components/Header/page";
+import { useParams } from 'next/navigation'
 
 
 export default function About() {
     const {about,setAbout} = useContext(Context);
-
+    const locale = useParams()
+    const [label, setLabel] = useState();
     useEffect(() => {
         getAbout();
+
+    if(locale.locale === 'ur'){
+      setLabel({textAlign:"right",fontFamily:"Jameel Noori Nastaleeq",fontSize:"18pt",wordSpacing:"3pt" })
+    }
+    else if(locale.locale === 'en'){
+      setLabel({textAlign:"left",fontFamily:"Garamond",fontSize:"16pt"})
+    }
+    
+    },[locale]);
+    // useEffect(() => {
         
-        }, []);
+    //     }, []);
         
         const getAbout = () => {
-        fetchDataFromApi("/api/abouts?populate=*").then((res) => {
+        fetchDataFromApi(`/api/abouts?populate=*&locale=${locale.locale}`).then((res) => {
           setAbout(res);
           console.log("GFDFG",res)
         });
@@ -39,9 +51,9 @@ export default function About() {
                         {about?.data?.map((item) => (
                     <div  
                     key={item.id}
-                     className='about-main'>
+                     className='about-main' >
                         
-                        <div className='about-left'>
+                        <div className='about-left' style={label}>
                             <h1>
                             {item.attributes.title}
                             </h1>

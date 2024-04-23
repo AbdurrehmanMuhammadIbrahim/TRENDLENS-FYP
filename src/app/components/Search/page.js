@@ -46,7 +46,7 @@ const Search = ({ setSearchModal }) => {
                )} 
                 <div className="search-results">
                     {data?.data?.map((item) => (
-                       <Link href={`/Articles/${item?.attributes?.title}`}
+                       <Link href={`/${locale.locale}/Articles/${item?.attributes?.title}`}
                             className="search-result-item"
                             key={item.id}
                             onClick={() => {

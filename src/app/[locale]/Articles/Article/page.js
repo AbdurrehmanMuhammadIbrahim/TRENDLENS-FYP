@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useParams } from 'next/navigation'
 import { useTranslations } from "next-intl";
 
@@ -13,9 +13,18 @@ const Article = ({ data, title }) => {
     // const navigate = useNavigate();
     // window.location.reload(false);
     const t = useTranslations("Home");
-
     const locale = useParams()
+    const [label, setLabel] = useState();
 
+    useEffect(() => {
+    if(locale.locale === 'ur'){
+      setLabel({fontFamily:"Jameel Noori Nastaleeq",wordSpacing:"3pt"})
+    }
+    else if(locale.locale === 'en'){
+      setLabel({fontFamily:"Garamond",})
+    }
+    
+    },[locale]);
     const truncateText = (text, maxLength) => {
         if (!text) {
             return ''; // Return an empty string if text is null or undefined
@@ -45,7 +54,7 @@ const Article = ({ data, title }) => {
                   
 
             </div>
-            <div className="arc-card-title">
+            <div className="arc-card-title" style={label}>
             {/* { data?.title} */}
 
             {truncateText(data?.title, 40)}
@@ -53,7 +62,7 @@ const Article = ({ data, title }) => {
             </div>
           <Link style={{textDecoration:"none"}} href={`/${locale.locale}/Articles/${data?.title}`}>
 
-          <div className="arc_btn">{t("read-btn")}</div>
+          <div className="arc_btn" style={label}>{t("read-btn")}</div>
           </Link>
             
         </div>

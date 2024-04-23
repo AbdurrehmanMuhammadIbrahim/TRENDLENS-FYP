@@ -39,11 +39,12 @@
 
 }
 
-.title {
+.ft-title {
     margin-bottom: 20px;
     font-size: 17px;
     color: rgb(243, 240, 240);
     font-weight: 600;
+    text-decoration:underline;
 }
 .col span {
     cursor: pointer;

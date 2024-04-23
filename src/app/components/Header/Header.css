@@ -153,7 +153,7 @@ font-weight: 600;
 font-size: 12pt;
 /* padding-left:30px; */
 
-padding: 10px 60px 10px 40px;
+padding: 0px 20px 0px 0px;
 /* min-width: 130px;
 width: 100%; */
 }
@@ -170,6 +170,7 @@ width: 100%; */
     width: 100%;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.07);
   }
+
   .dropdown-content .item {
     padding: 10px 0px 10px 0px;
     cursor: pointer;
@@ -177,7 +178,7 @@ width: 100%; */
 
   }
   .dropdown-content .item:hover {
-    background: #6357e8;
+    background: rgb(23, 88, 157);
   }
   
   /* button {

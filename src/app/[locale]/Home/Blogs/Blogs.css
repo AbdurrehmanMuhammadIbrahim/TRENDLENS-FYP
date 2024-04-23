@@ -34,14 +34,12 @@
 .bg-title {
     margin-bottom: 15px;
     /* margin-left: 15px; */
-    font-size: 20pt;
+    font-size: 40pt;
     font-weight: 700;
     text-transform: uppercase;
 
-    @media (min-width: 768px) {
-        /* margin-bottom: 25px; */
-        font-size: 48px;
-        font-weight: 700;
+    @media (max-width: 768px) {
+    display: none;
     }
 }
 
@@ -71,6 +69,14 @@ flex: 3.5;
     }
 }
 
+.left-Bg h2{
+    width: 100%;
+
+    @media (min-width: 868px) {
+        width: 90%;
+       
+    }
+}
 .Bg-Img {
     width: 100%;
 
@@ -84,7 +90,7 @@ flex: 3.5;
     width: 100%;
 
     @media (min-width: 868px) {
-        width: 520px;
+        width: 90%;
        
     }
 
@@ -131,9 +137,11 @@ flex:3;
 
     }
 }
-/* .title-Blog{
-    margin-top: 0px;
-} */
+.title-Blog{
+    @media (min-width: 768px) {
+    margin-top: -20px;
+    }
+}
 .blog-text{
 margin-top: 20px;
 font-size: 12pt; 

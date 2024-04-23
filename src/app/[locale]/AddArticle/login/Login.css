@@ -7,12 +7,13 @@ body {
 } */
 
 .login {
-  width: 70%;
+  width: 100%;
+  height: 100vh;
   padding: 8% 0 0;
   margin: auto;
   font-family: 'Playfair', cursive;
   color: #FFFFFF;
-
+  background: radial-gradient(circle, rgba(75,137,201,1) 0%, rgba(7,41,77,1) 100%);
 }
 
 .login-form {
