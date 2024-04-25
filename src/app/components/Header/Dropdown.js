@@ -16,9 +16,6 @@ const locale = useParams();
     const { categories, setCategories } = useContext(Context);
     const dropdownRef = useRef(null);
 
-    useEffect(() => {
-    getCategories();
-    }, []);
   
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -40,7 +37,10 @@ const locale = useParams();
         setCategories(res);
       });
       };
-  
+      useEffect(() => {
+        getCategories();
+        }, []);
+      
     return (
 
         <div className="dropdown" ref={dropdownRef}>

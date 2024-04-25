@@ -4,19 +4,85 @@ import "./SingleArticle.css"
 import useFetch from "../../../hooks/useFetch ";
 import { useParams } from 'next/navigation'
 import RelatedProducts from "./RelatedProduct/page";
+import Comments from "./Comments/page"
 import { useTranslations } from "next-intl";
-// import { Context } from "../../utils/context";
+import axios from "axios";
+
 
 export default function SingleArticle() {
   const title = useParams()
 const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}&locale=${title.locale}`);
-// console.log(data)
+console.log(data)
+// const { comment } = useFetch("/api/comments");
+// console.log("comment",comment)
+
 const article = data?.data[0]?.attributes;
+
 const t = useTranslations("Home");
-
-// console.log ("id---",title)
-
 const [label, setLabel] = useState();
+
+
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  comment: " ",
+// locale:" ",
+  // Add other form fields here
+});
+
+const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+//   if (e.target.type === 'file') {
+//     setFormData({ ...formData, image: e.target.files[0] }); // Store uploaded image
+//   }
+//   else {
+//     setFormData({ ...formData, [e.target.name]: e.target.value }); // Handle other form fields
+//   }
+// };
+
+const handleSubmit = async (e) => {
+  console.log(formData)
+  e.preventDefault();
+
+  const formDataToSend = new FormData(); // Use FormData for multipart data
+  formDataToSend.append('data', JSON.stringify({
+    name: formData.name,
+    email: formData.email,
+    comment:formData.comment,
+    articles:{
+      title:"Article-7"
+    },
+    publishedAt: null,
+
+  }));
+  console.log(formDataToSend)
+
+  // formDataToSend.append('files.image', formData.image); // Append image file
+
+
+  try {
+
+    const response = await axios.post("http://localhost:1337/api/comments?populate=*&[filters][articles][title][$eq]=Article-3", formDataToSend, {
+
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+
+
+    });
+    console.log('Article created successfully', response.data);
+   
+
+
+  } catch (error) {
+    console.error('Error creating comment:', error);
+    alert("please write right credentials" , error)
+  }
+
+
+};
 useEffect(() => {
 if(title.locale === 'ur'){
   setLabel({textAlign:"right",fontFamily:"Jameel Noori Nastaleeq",fontSize:"18pt",wordSpacing:"3pt" })
@@ -57,6 +123,12 @@ else if(title.locale === 'en'){
             </div>
           </div>
 
+
+<div>
+  <h1 style={{textDecoration:"underLine"}}>Comments</h1>
+  <Comments />
+
+</div>
           <div>
             <RelatedProducts 
             SingleArticleId={title}
@@ -71,15 +143,15 @@ else if(title.locale === 'en'){
     </div>
     <div className='blg-inp'>
     <div className='blg-inp-name'>
-                    <input placeholder='Name' id='blg-InpID'></input>
-                    <input placeholder='Last Name' id='blg-InpID'></input>
+                    <input placeholder='Name' id='blg-InpID'  name="name" value={formData.name} onChange={handleChange}></input>
+                    <input type="email" placeholder='Email' id='blg-InpID' name="email" value={formData.email} onChange={handleChange}></input>
                   </div>
     
     <div>
-    <textarea placeholder='Your message' type="textarea" id='blg-InpID'></textarea>
+    <textarea placeholder='Your message' type="textarea" id='blg-InpID'  name="comment" value={formData.comment} onChange={handleChange}></textarea>
    
     </div>
-    <div className='blg-Btn'> Post Comment</div>
+    <div className='blg-Btn' onClick={handleSubmit}> Post Comment</div>
     </div>
 </div>
       </div>

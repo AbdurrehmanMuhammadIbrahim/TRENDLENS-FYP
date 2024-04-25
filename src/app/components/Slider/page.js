@@ -1,99 +1,3 @@
-// "use client";
-// import { useState, useEffect } from "react";
-// // import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-// // import { sliderData } from "../../slider-data";
-// import "./slider.css";
-
-
-// const sliderData = [
-//     {
-//       image: "https://i.ibb.co/58Mq6Mb/slide1.jpg",
-//       heading: "Slide One",
-//       desc: "This is the description of slide one Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-//     },
-//     {
-//       image: "https://i.ibb.co/8gwwd4Q/slide2.jpg",
-//       heading: "Slide Two",
-//       desc: "This is the description of slide two Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-//     },
-//     {
-//       image: "https://i.ibb.co/8r7WYJh/slide3.jpg",
-//       heading: "Slide Three",
-//       desc: "This is the description of slide three Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-//     },
-//   ];
-
-
-
-
-// const Slider = () => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
-//   const slideLength = sliderData.length;
-
-//   const autoScroll = true;
-//   let slideInterval;
-//   let intervalTime = 4000;
-
-//   const nextSlide = () => {
-//     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
-//     // console.log("next");
-//   };
-
-//   const prevSlide = () => {
-//     setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
-//     // console.log("prev");
-//   };
-
-//   function auto() {
-//     slideInterval = setInterval(nextSlide, intervalTime);
-//   }
-
-//   useEffect(() => {
-//     setCurrentSlide(0);
-//   }, []);
-
-//   useEffect(() => {
-//     if (autoScroll) {
-//       auto();
-//     }
-//     return () => clearInterval(slideInterval);
-//   }, [currentSlide]);
-
-//   return (
-//     <div className="slider">
-//       {/* <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide} /> */}
-//       {/* <AiOutlineArrowRight className="arrow next" onClick={nextSlide} /> */}
-//       {sliderData.map((slide, index) => {
-//         return (
-//           <div
-//             className={index === currentSlide ? "slide current" : "slide"}
-//             key={index}
-//           >
-//             {index === currentSlide && (
-//               <div>
-//                 <img src={slide.image} alt="slide" className="image" />
-//                 <div className="sld-content">
-//                   <h2>{slide.heading}</h2>
-//                   <p>{slide.desc}</p>
-                  
-//                   <div className="sld-get-btndiv">
-//                     <button style={{ backgroundColor: "#fcb900", borderRadius: 10, borderColor: "#fcb900", color: "black", fontWeight: 600, padding: 7, }}>Get Started</button>
-
-//                   </div>
-//                </div>
-//               </div>
-//             )}
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-
-// export default Slider;
-
-
-
 "use client"; // This is a client component 👈🏽
 import { useState, useEffect,useContext } from "react";
 // import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
@@ -101,28 +5,39 @@ import { useState, useEffect,useContext } from "react";
 // import Desgn1 from "../../assets/Group 17598.png"
 import "./slider.css";
 import Image from 'next/image';
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 // import { fetchDataFromApi } from "../../utils/api";
 // import { Context } from "../../utils/context";
-const sliderData = [
-  {
-    image: "https://i.ibb.co/58Mq6Mb/slide1.jpg",
-    heading: "Slide One",
-    desc: "This wwwwwwwum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-  },
-  {
-    image: "https://i.ibb.co/8gwwd4Q/slide2.jpg",
-    heading: "Slide Two",
-    desc: "This is the description of slide two Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-  },
-  {
-    image: "https://i.ibb.co/8r7WYJh/slide3.jpg",
-    heading: "Slide Three",
-    desc: "This is the description of slide three Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
-  },
-];
+
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const title = useParams();
+  const t = useTranslations("slider")
+
+console.log("sld",t.locale)
+
+  const sliderData = [
+    {
+      image: "https://img.freepik.com/premium-photo/news-update_693425-32236.jpg?w=900",
+      heading: `${t("head")}`,
+      desc: `${t("slide-1")}`,
+    },
+    {
+      image: "https://img.freepik.com/free-photo/full-moon-sky-sea-water_23-2148282854.jpg?t=st=1713975017~exp=1713978617~hmac=383431852a4d57858da07692ed481145ecb0e3e3598a16f2eaf47e10cf0cd5c2&w=740"
+      ,heading: `${t("head")}`,
+      desc: `${t("slide-3")}`,
+    },
+    {
+      image: "https://i.ibb.co/8r7WYJh/slide3.jpg",
+      heading:`${t("head")}`,
+      desc: `${t("slide-3")}`
+    },
+  ];
+  
+const [label, setLabel] = useState();
+
 
 
   // const { sliders, setSliders } = useContext(Context);
@@ -137,7 +52,7 @@ const Slider = () => {
 
   const autoScroll = true;
   let slideInterval;
-  let intervalTime = 4000;
+  let intervalTime = 10000;
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide ===slideLength - 1 ? 0 : currentSlide + 1);
@@ -156,7 +71,16 @@ const Slider = () => {
   useEffect(() => {
     setCurrentSlide(0);
   }, []);
-
+  useEffect(() => {
+    if(title.locale === 'ur'){
+      setLabel({textAlign:"right",fontFamily:"Jameel Noori Nastaleeq",fontSize:"20pt",wordSpacing:"4pt" })
+    }
+    else if(title.locale === 'en'){
+      setLabel({textAlign:"left",fontFamily:"Garamond",fontSize:"18pt"})
+    }
+    
+    },[title]);
+    
   useEffect(() => {
     if (autoScroll) {
       auto();
@@ -185,16 +109,13 @@ const Slider = () => {
 
                 </div> */}
 
-                <div className="sld-content">
+                <div className="sld-content" style={label}>
 
 
-                <h2>{slide.heading}</h2>
+                <h2 >{slide.heading}</h2>
                   <div>{slide.desc}</div>
                   {/* <hr /> */}
-                  <div className="sld-get-btndiv">
-                    <button style={{ backgroundColor: "#fcb900", borderRadius: 10, borderColor: "#fcb900", color: "black", fontWeight: 600, padding: 7, }}>Get Started</button>
-
-                  </div>
+                 
                 </div>
               </div>
             )}

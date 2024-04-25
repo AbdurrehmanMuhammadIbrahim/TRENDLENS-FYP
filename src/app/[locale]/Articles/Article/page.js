@@ -21,7 +21,7 @@ const Article = ({ data, title }) => {
       setLabel({fontFamily:"Jameel Noori Nastaleeq",wordSpacing:"3pt"})
     }
     else if(locale.locale === 'en'){
-      setLabel({fontFamily:"Garamond",})
+      setLabel({fontFamily:"Garamond"})
     }
     
     },[locale]);

@@ -40,7 +40,7 @@
 
 .image{
   @media screen and (min-width: 1080px) {
-    height: 90vh!important;
+    height: 70vh!important;
   
     }
 }
@@ -55,6 +55,7 @@
 .sld-content {
   position: absolute;
   /* top: 23rem; */
+  /* text-align: right; */
   left: 5rem;
   opacity: 0;
   width: 70%;
@@ -122,12 +123,3 @@
 }
 
 
-
-.sld-get-btndiv {
-  margin: 30px 0;
-
-  @media (max-width: 768px) {
-    margin-top:-5px;
-  }
-
-}

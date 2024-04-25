@@ -54,6 +54,9 @@
     border-radius: 3px;
     border: 0.1px solid rgb(138, 138, 138, 0.5);
 }
+#arc-InpSlt{
+    margin-top: 14pt;
+}
 .arc-inp select {
     /* padding: 10px 12px; */
     margin: 1% 0%;

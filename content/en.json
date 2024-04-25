@@ -1,10 +1,6 @@
 {
   "Home": {
-    "navigation": {
-      "home": "Home",
-      "about": "About",
-      "contact": "Contact Us"
-    },
+   
     "read-btn":"Read More",
     "title": "TREND-LENS",
     "Home-link": "Home",
@@ -16,5 +12,12 @@
     "address":" 48, Old Ralli Bldg. Talpur Road, Karachi,Sindh",
     "comment-text":"Leave your comment"
     
+  },
+  "slider":{
+    "head":"sayings:",
+    "slide-1":"Indulge in an immersive experience, where stories ignite imagination and curiosity knows no bounds",
+    "slide-2":"Embark on a journey of discovery, where every word unveils new horizons of understanding.",
+    "slide-3":"Expand your perspective, enrich your knowledge, and embrace the wonders of our diverse content."
   }
+
 }

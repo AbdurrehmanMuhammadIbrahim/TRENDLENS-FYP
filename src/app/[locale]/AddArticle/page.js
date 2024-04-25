@@ -1,18 +1,30 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState ,useContext,useEffect,useRef } from 'react';
 import "./addArticle.css"
 import axios from 'axios';
 import { useParams } from 'next/navigation';
-
+import { fetchDataFromApi } from "../../utils/api";
+import { Context } from "../../utils/context";
 function AddArticle() {
   const locale = useParams();
   console.log(locale.locale)
-  
+  const { categories, setCategories } = useContext(Context);
+
+  const getCategories = () => {
+    fetchDataFromApi("/api/categories?populate=*").then((res) => {
+      console.log("cat-data",res)
+      setCategories(res);
+    });
+    };
+    useEffect(() => {
+      getCategories();
+      }, []);
   const [formData, setFormData] = useState({
     title: '',
     desc: '',
     image: " ",
 locale:" ",
+categories:" "
     // Add other form fields here
   });
 
@@ -29,7 +41,7 @@ locale:" ",
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData)
+    console.log(formData,"data-form")
     e.preventDefault();
 
     const formDataToSend = new FormData(); // Use FormData for multipart data
@@ -44,7 +56,7 @@ locale:" ",
 
 
     try {
-      const response = await axios.post("http://localhost:1337/api/articles", formDataToSend, {
+      const response = await axios.post("http://localhost:1337/api/articles?populate=*&[filters][categories][title]", formDataToSend, {
 
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -90,18 +102,35 @@ locale:" ",
                 <input type="file" accept="image/*" id='arc-InpFile' name="image" onChange={handleChange} />
 
               </div>
-              <div>
+              <div id='arc-InpSlt' >
 
-                <h4 for="cars">Please select a language:</h4>
-                <select  name="locale" value={formData.locale} onChange={handleChange}  id='arc-InpSlt' >
+                <h4 for="cars" >Please select a language:</h4>
+                <select name="locale" value={formData.locale} onChange={handleChange}  >
                 <option value=""> select language </option>
                   <option  value={"en"}>ENGLISH</option>
                   <option value={"ur"}>URDU / اردو</option>
                 </select>
 
               </div>
-            </div>
 
+
+              
+            </div>
+<div>
+
+
+<h4 for="cars" id='arc-InpSlt' >Please select a categoy:</h4>
+<select  name="categories" value={formData.categories} onChange={handleChange}   >
+<option value=""> select category </option>
+{categories?.data?.map((item, index) => (
+  <option key={index} value={`${item?.attributes.title}`}>{item?.attributes.title} / {item?.attributes.urduTitle}</option>
+
+))}
+</select>
+
+
+
+</div>
             <div>
               <textarea placeholder='Your Article' type="textarea" id='arc-InpID' name="desc" value={formData.desc} onChange={handleChange}></textarea>
 

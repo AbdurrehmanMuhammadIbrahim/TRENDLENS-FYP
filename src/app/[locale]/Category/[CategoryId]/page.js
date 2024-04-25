@@ -22,7 +22,7 @@ const Category = () => {
     return (
         <div className="category-main-content">
 <HeroBanner name={
-                       data?.data[0]?.attributes?.categories?.data[0].attributes.title 
+                   title.CategoryId
                     }/>
 
             <div className="layout">

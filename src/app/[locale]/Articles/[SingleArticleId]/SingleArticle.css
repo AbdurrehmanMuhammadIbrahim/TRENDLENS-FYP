@@ -186,3 +186,28 @@ font-family:'Times New Roman', Times, serif;
         color: #000;
     }
 }
+
+/* ///////////////////////////comments/////////////// */
+.cmt-main{
+margin: 17pt 10pt;
+border-bottom: 0.5px solid #818080;
+font-family: 'Times New Roman',jameel noori Nastaleeq;
+}
+.cmt-name{
+    font-size: 16pt;
+    margin-bottom: 3pt;
+    font-weight: 700;
+
+}
+.cmt-comment{
+    font-size: 14pt;
+    margin-bottom: 3pt;
+
+    font-weight: 60;
+
+}
+.cmt-msg {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.5);
+}
