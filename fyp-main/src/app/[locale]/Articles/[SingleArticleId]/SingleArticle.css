@@ -59,7 +59,7 @@
 
 }
 .sing-text p{
-line-height: 2;
+line-height: 1.5;
 font-size: 18px;
 font-family:'Times New Roman', Times, serif;
 }
@@ -102,7 +102,7 @@ font-family:'Times New Roman', Times, serif;
 .blg-leave {
     margin: 1%;
     margin-bottom: 1ch;
-    /* font-size: 22px; */
+    font-size: 22pt!important;
     font-weight: 900;
     /* line-height: 32px; */
     color: rgb(7, 41, 77);
@@ -145,7 +145,7 @@ font-family:'Times New Roman', Times, serif;
 
 .blg-inp textarea {
     padding: 10px 12px;
-    margin: 3% 0%;
+    margin: 1% 0%;
     background-color: rgb(138, 138, 138, 0.05);
     color: #000000;
     font-weight: 500;
@@ -160,9 +160,7 @@ font-family:'Times New Roman', Times, serif;
     border: 0.5px solid rgb(138, 138, 138, 0.5);
 }
 
-#InpID::placeholder {
-    color: rgb(138, 138, 138, 0.5);
-}
+
 
 .blg-Btn {
     margin: 1% 0%;
@@ -191,6 +189,7 @@ font-family:'Times New Roman', Times, serif;
 .cmt-main{
 margin: 17pt 10pt;
 border-bottom: 0.5px solid #818080;
+
 font-family: 'Times New Roman',jameel noori Nastaleeq;
 }
 .cmt-name{
@@ -210,4 +209,7 @@ font-family: 'Times New Roman',jameel noori Nastaleeq;
     text-align: center;
     margin-top: 20px;
     color: rgba(0, 0, 0, 0.5);
+}
+.cmt-head{
+    color: #000;
 }

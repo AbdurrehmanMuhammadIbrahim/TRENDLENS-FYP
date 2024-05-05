@@ -9,8 +9,9 @@
     "Contact-link": "Contact Us",
     "Add-Article-link": "Add-Article",
     "address":" 48, Old Ralli Bldg. Talpur Road, Karachi,Sindh",
-    "comment-text":"Leave your comment"
-    
+    "comment-head":"Leave your comment",
+    "comment-text":"your message"
+
   },
   "slider":{
     "head":"sayings:",

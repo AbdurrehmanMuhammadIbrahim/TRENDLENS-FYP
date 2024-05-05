@@ -40,8 +40,8 @@
     /* .prod-details {
     } */
         .arc-card-title {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 22pt;
+            font-weight: 900;
             display: block;
             margin: 0px auto;
             text-align: center;
@@ -50,23 +50,31 @@
             /* white-space: nowrap; */
             /* overflow: hidden; */
             @media  (min-width: 768px)  {
-                font-size: 16px;
+                font-size: 18px;
                 margin-bottom: 10px;
             }
         }
-        /* .PRprice {
-            font-size: 18px;
-            @media  (min-width: 768px)  {
-                font-size: 18px;
-            }
+       .arc-card-desc{
+        font-size: 14px;
+        display: block;
+        margin: 0px auto;
+        text-align: center;
+        text-transform:lowercase;
+        /* white-space: nowrap; */
+        /* overflow: hidden; */
+        @media  (min-width: 768px)  {
+            font-size: 16px;
+            margin-bottom: 10px;
+            min-height: 100px;
+
         }
-     */
+       }
      
           
         .arc_btn{
             width:50%; 
-            margin: 0px auto;
-            font-size:12px;
+            margin: 12px auto;
+            font-size:14px;
 
                     background-color:#fcb900; 
                     border-radius: 5px;
@@ -74,7 +82,7 @@
                      color: black; 
                      font-weight: 600;
                       padding: 7px; 
-                      text-align:center;
+                      text-align:center!important;
                      
                     
            }

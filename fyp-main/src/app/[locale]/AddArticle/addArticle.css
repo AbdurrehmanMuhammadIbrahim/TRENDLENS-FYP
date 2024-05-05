@@ -19,6 +19,28 @@
     line-height: 32px;
     color: rgb(7, 41, 77);
 }
+.logout-btn{
+     margin-left:0px auto;
+float: right;
+    padding: 0px 20px;
+    cursor: pointer;
+    background-color: rgb(7, 41, 77);
+    height: 45px;
+    font-weight: 600;
+    color: aliceblue;
+    font-size: 17px;
+    border-radius: 3px;
+    text-align: center;
+    /* margin: 1% ; */
+    /* margin-left: 2%; */
+    line-height: 50px;
+
+    &:hover {
+        /* opacity: 0.6; */
+        background-color: #ffc600;
+        color: #000;
+    }
+}
 
 .arc-inp-name {
     /* display: flex; */

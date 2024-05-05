@@ -31,19 +31,33 @@ const [formData, setFormData] = useState({
   name: '',
   email: '',
   comment: " ",
-  articles:" "
-// locale:" ",
+  articles:" ",
+locale:"",
   // Add other form fields here
 });
 
 const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const { name, value } = e.target;
+
+  // If the field name is "comment" (textarea) and the locale is Urdu
+  if (name === ('comment','name') && title.locale === 'ur' && value !== '') {
+    // Check if the input contains Urdu characters or spaces
+    const isUrdu = /^[\u0600-\u06FF\s]+$/.test(value);
+    // Only update the form state if the input is in Urdu or if it's empty
+    if (isUrdu) {
+      setFormData({ ...formData, [name]: value });
+    }
+  } else {
+    // For other input fields and conditions, update the form state with any input
+    setFormData({ ...formData, [name]: value });
+  }
   };
 
 
 const handleSubmit = async (e) => {
-  console.log(formData)
   e.preventDefault();
+
+  console.log(formData)
 
   const formDataToSend = new FormData(); // Use FormData for multipart data
   formDataToSend.append('data', JSON.stringify({
@@ -52,6 +66,7 @@ const handleSubmit = async (e) => {
     comment:formData.comment,
     articles: [data?.data[0]?.id],
     publishedAt: null,
+    locale:title.locale
 
   }));
   console.log(formDataToSend)
@@ -61,7 +76,7 @@ const handleSubmit = async (e) => {
 
   try {
 
-    const response = await axios.post(`http://localhost:1337/api/comments/?populate=*&[filters][articles]=${title.SingleArticleId}`, formDataToSend, {
+    const response = await axios.post(`http://localhost:1337/api/comments/?populate=*&[filters][articles]=${title.SingleArticleId}&locale=${title.locale}`, formDataToSend, {
 
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -70,7 +85,13 @@ const handleSubmit = async (e) => {
 
     });
     console.log('Article created successfully', response.data);
-   
+    // Optionally, clear the form fields after submission
+    setFormData({
+      name: '',
+      email: '',
+      comment: '',
+      articles: ''
+    });
 
 
   } catch (error) {
@@ -113,7 +134,7 @@ else if(title.locale === 'en'){
               </div>
             </div>
             <div className="sing-text" style={label}>
-              <h1 style={{ color: "black", textTransform: "capitalize",margin:"20px 0px",}}>{data?.data[0]?.attributes?.title}</h1>
+              <h2 style={{ color: "black", textTransform: "capitalize",margin:"20px 0px",}}>{data?.data[0]?.attributes?.title}</h2>
               <p style={label}>
               {data?.data[0]?.attributes?.desc}
               </p>
@@ -136,7 +157,7 @@ else if(title.locale === 'en'){
         </div>
         <div className="sing-main">    
 <div className='blg-leave' style={label}>
-        {t("comment-text")}
+        {t("comment-head")}
     </div>
     <div className='blg-inp'>
     <div className='blg-inp-name'>
@@ -144,8 +165,9 @@ else if(title.locale === 'en'){
                     <input type="email" placeholder='Email' id='blg-InpID' name="email" value={formData.email} onChange={handleChange}></input>
                   </div>
     
-    <div>
-    <textarea placeholder='Your message' type="textarea" id='blg-InpID'  name="comment" value={formData.comment} onChange={handleChange}></textarea>
+                  <div>
+                 <h4 style={label} className="cmt-head">{t("comment-text")}</h4> 
+    <textarea type="textarea" id='blg-InpID'  name="comment" value={formData.comment} onChange={handleChange}></textarea>
    
     </div>
     <div className='blg-Btn' onClick={handleSubmit}> Post Comment</div>

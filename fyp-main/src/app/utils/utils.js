@@ -12,8 +12,11 @@ export const storeUser = (data) => {
   // );
   const token = data.jwt;
   Cookies.set('token', token, { expires: 2, secure: true });
+ 
 
 };
+
+
 export const removeUser = () => {
   // localStorage.removeItem(
   //   "user"

@@ -18,10 +18,10 @@ const Article = ({ data, title }) => {
 
     useEffect(() => {
     if(locale.locale === 'ur'){
-      setLabel({fontFamily:"Jameel Noori Nastaleeq",wordSpacing:"3pt"})
+      setLabel({fontFamily:"Jameel Noori Nastaleeq",wordSpacing:"3pt",textAlign:"right"})
     }
     else if(locale.locale === 'en'){
-      setLabel({fontFamily:"Garamond"})
+      setLabel({fontFamily:"Garamond",textAlign:"left"})
     }
     
     },[locale]);
@@ -58,6 +58,12 @@ const Article = ({ data, title }) => {
             {/* { data?.title} */}
 
             {truncateText(data?.title, 40)}
+             
+            </div>
+            <div className="arc-card-desc" style={label}>
+            {/* { data?.title} */}
+
+            {truncateText(data?.desc, 120)}
              
             </div>
           <Link style={{textDecoration:"none"}} href={`/${locale.locale}/Articles/${data?.title}`}>

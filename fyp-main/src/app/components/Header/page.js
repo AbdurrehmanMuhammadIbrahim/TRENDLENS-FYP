@@ -1,6 +1,5 @@
 "use client"; // This is a client component 👈🏽
 import { useEffect, useState ,useContext} from "react";
-
 import { FaSearchPlus  } from "react-icons/fa";
 import { MdOutlineMenuOpen  } from "react-icons/md";
 import { useParams } from "next/navigation";
@@ -11,7 +10,6 @@ import Dropdown from "./Dropdown";
 import FtrImg from "../../assets/img1.jpeg"
 import Image from 'next/image';
 import Search from "../Search/page";
-
 import { useTranslations } from "next-intl";
 
 
@@ -21,17 +19,20 @@ import { useTranslations } from "next-intl";
 const Header = () => {
     const t = useTranslations("Home");
 const locale =useParams();
-    // const fontSize = i18n.lang === 'ur' ? '20px' : '16px';
+// const cookieStore = Cookies()
+
+
 
     const navItems = [
         { text: `${t("Home-link")}`, href: '/' },
         { text: `${t("Dropdown-link")}`, isDropdown: true }, 
+        // className={`toggle ${toggle ? 'on' : 'off'}`} 
         { text: `${t("Articles-link")}`, href: '/Articles/AllArticles' },
         { text: `${t("About-link")}`, href: '/About' },
         { text: `${t("Contact-link")}`, href: '/Contact' },
-        { text: `${t("Add-Article-link")}`, href: '/AddArticle' },
-    
+        {text:  `${t("Add-Article-link")}`,href: '/AddArticle'}
     ];
+   
     
 
 

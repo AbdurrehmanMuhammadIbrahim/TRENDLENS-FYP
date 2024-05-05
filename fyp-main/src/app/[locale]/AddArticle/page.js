@@ -5,7 +5,14 @@ import axios from 'axios';
 import { useParams } from 'next/navigation';
 import { fetchDataFromApi } from "../../utils/api";
 import { Context } from "../../utils/context";
+import { removeUser } from '@/app/utils/utils';
+import { useRouter } from 'next/navigation';
+
+
+
+
 function AddArticle() {
+  const router = useRouter();
   const locale = useParams();
   console.log(locale.locale)
   const { categories, setCategories } = useContext(Context);
@@ -29,6 +36,16 @@ locale:" ",
 categories:" "
     // Add other form fields here
   });
+
+ ///LOGOUT ///////////
+ const logout = () =>{
+  // Clear JWT from local storage
+  removeUser()
+  console.log("jwt removed successfully")
+
+  // Redirect to the login page or any other desired page
+  router.push("/en/AddArticle/login"||"/ur/AddArticle/login"); 
+  }
 
   const handleChange = (e) => {
     //   setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -87,9 +104,17 @@ categories:" "
   return (
     <div>
       <div className="sing-main">
-        <div className='arc-head'>
+<div style={{display:"flex",justifyContent:"space-between"}}>
+<div className='arc-head'>
           Add Article
         </div>
+
+  <div>
+  <div className='logout-btn' type="submit" onClick={logout} >logout</div>
+
+  </div>
+</div>
+     
         <form onSubmit={handleSubmit}>
           <div className='arc-inp'>
             <div className='arc-inp-name'>
@@ -107,7 +132,7 @@ categories:" "
               </div>
               <div id='arc-InpSlt' >
 
-                <h4 for="cars" >Please select a language:</h4>
+                <h4  >Please select a language:</h4>
                 <select name="locale" value={formData.locale} onChange={handleChange}  >
                 <option value=""> select language </option>
                   <option  value={"en"}>ENGLISH</option>
@@ -122,7 +147,7 @@ categories:" "
 <div>
 
 
-<h4 for="cars" id='arc-InpSlt' >Please select a categoy:</h4>
+<h4  id='arc-InpSlt' >Please select a categoy:</h4>
 <select  name="categories" value={formData.categories} onChange={handleChange}   >
 <option value=""> select category </option>
 {categories?.data?.map((item, index) => (
