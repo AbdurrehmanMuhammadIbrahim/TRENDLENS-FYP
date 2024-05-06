@@ -44,7 +44,7 @@ categories:" "
   console.log("jwt removed successfully")
 
   // Redirect to the login page or any other desired page
-  router.push("/en/AddArticle/login"||"/ur/AddArticle/login"); 
+  router.push("/"); 
   }
 
   const handleChange = (e) => {

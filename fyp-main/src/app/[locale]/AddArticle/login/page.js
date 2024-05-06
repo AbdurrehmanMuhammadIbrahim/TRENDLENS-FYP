@@ -96,7 +96,7 @@ const Login = () => {
 
             </form>
             <div className="signup-link">
-              you don't have acccount <Link href="Signup">signUp</Link>
+              you don't have acccount <Link href="AddArticle/Signup">signUp</Link>
             </div>
           </div>
         </div>

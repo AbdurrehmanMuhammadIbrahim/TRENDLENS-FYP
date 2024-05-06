@@ -54,7 +54,7 @@
                 margin-bottom: 10px;
             }
         }
-       .arc-card-desc{
+       /* .arc-card-desc{
         font-size: 14px;
         display: block;
         margin: 0px auto;
@@ -62,18 +62,18 @@
         text-transform:lowercase;
         /* white-space: nowrap; */
         /* overflow: hidden; */
-        @media  (min-width: 768px)  {
+        /* @media  (min-width: 768px)  {
             font-size: 16px;
             margin-bottom: 10px;
-            min-height: 100px;
+            min-height: 80px;
 
-        }
-       }
+        } */
+       /* } */ 
      
           
         .arc_btn{
             width:50%; 
-            margin: 12px auto;
+            margin: 2px auto;
             font-size:14px;
 
                     background-color:#fcb900; 

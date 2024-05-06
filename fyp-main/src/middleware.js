@@ -91,7 +91,7 @@ export function middleware(request) {
   //   // If an error occurs, return a response indicating server error
   //   return new Response("Server error", { status: 500 });
   // }
-  if ( request.nextUrl.pathname === '/en/AddArticle') {
+  if ( request.nextUrl.pathname === '/en/AddArticle'){
     if (jwtToken){
     return intlMiddleware(request);
     }else{
@@ -99,14 +99,25 @@ export function middleware(request) {
       url.pathname = '/en/AddArticle/login';
       return NextResponse.rewrite(url)
     }
-  }else{
+
+   
+  } else if(request.nextUrl.pathname === '/ur/AddArticle'){
+    if (jwtToken){
+      return intlMiddleware(request);
+      }else{
+        const url = request.nextUrl.clone()
+        url.pathname = '/ur/AddArticle/login';
+        return NextResponse.rewrite(url)
+      }
+  
+  } else{
     return intlMiddleware(request);
   }
-
+ 
 }
 
 // Define the matcher for the next-intl middleware
 export const config = {
   // Match routes for internationalization and other routes
-  matcher: ['/', '/(ur|en)/:page*', '/Contact', '/About', '/Articles/AllArticles', '/AddArticle']
+  matcher: ['/', '/(ur|en)/:page*', '/Contact', '/About', '/Articles/AllArticles', '/AddArticle', '/AddArticle/login']
 };

@@ -59,8 +59,8 @@
 
 }
 .sing-text p{
-line-height: 1.5;
-font-size: 18px;
+line-height: 2;
+/* font-size: 18pt; */
 font-family:'Times New Roman', Times, serif;
 }
 .sig-Article-cmt-svg {
@@ -193,15 +193,15 @@ border-bottom: 0.5px solid #818080;
 font-family: 'Times New Roman',jameel noori Nastaleeq;
 }
 .cmt-name{
-    font-size: 16pt;
+    font-size: 18pt;
     margin-bottom: 3pt;
-    font-weight: 700;
+    font-weight: 900;
 
 }
 .cmt-comment{
-    font-size: 14pt;
+    /* font-size: 12pt; */
     margin-bottom: 3pt;
-
+margin-left: 10pt;
     font-weight: 60;
 
 }

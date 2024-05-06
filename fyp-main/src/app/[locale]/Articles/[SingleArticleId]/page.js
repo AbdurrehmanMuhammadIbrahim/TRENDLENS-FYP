@@ -3,20 +3,22 @@ import React,{useState,useEffect,useContext} from "react";
 import "./SingleArticle.css"
 import useFetch from "../../../hooks/useFetch ";
 import { useParams } from 'next/navigation'
-import RelatedProducts from "./RelatedProduct/page";
+import RelatedArticles from "./RelatedProduct/page";
 import Comments from "./Comments/page"
 import { useTranslations } from "next-intl";
 import axios from "axios";
 import { Context } from "../../../utils/context";
+import ReactMarkdown from "react-markdown"; // Import react-markdown
+
 
 
 export default function SingleArticle() {
   const title = useParams()
 
-console.log(title.locale,"sineeeee")
+console.log(title.SingleArticleId,"sineeeee")
 
 const { data } = useFetch(`/api/articles?populate=*&[filters][title]=${title.SingleArticleId}&locale=${title.locale}`);
-console.log('data',data)
+console.log('data-sin',data)
 // const { comment } = useFetch("/api/comments");
 // console.log("comment",comment)
 
@@ -130,13 +132,14 @@ else if(title.locale === 'en'){
                 <p>{data?.data[0]?.attributes?.createdAt} </p>
               </div>
               <div className='sig-Article-cmt-svg'>
-                <p>2 comments</p>
+                <p>{data?.data[0]?.attributes?.comments?.data.length} comment</p>
               </div>
             </div>
             <div className="sing-text" style={label}>
               <h2 style={{ color: "black", textTransform: "capitalize",margin:"20px 0px",}}>{data?.data[0]?.attributes?.title}</h2>
               <p style={label}>
-              {data?.data[0]?.attributes?.desc}
+              {/* {data?.data[0]?.attributes?.desc} */}
+              <ReactMarkdown >{data?.data[0]?.attributes?.desc}</ReactMarkdown>
               </p>
             </div>
           </div>
@@ -147,12 +150,12 @@ else if(title.locale === 'en'){
   <Comments />
 
 </div>
-          <div>
-            <RelatedProducts 
+          {/* <div>
+            <RelatedArticles 
             SingleArticleId={title}
                     CategoryId={article?.categories.data[0].id}
                     />
-          </div>
+          </div> */}
 
         </div>
         <div className="sing-main">    

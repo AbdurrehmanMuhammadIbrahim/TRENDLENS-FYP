@@ -11,8 +11,10 @@ function comment() {
         setLabel({textAlign:"right",fontFamily:"Jameel Noori Nastaleeq",fontSize:"18pt",wordSpacing:"3pt" })
       }
       else if(title.locale === 'en'){
-        setLabel({textAlign:"left",fontFamily:"Garamond",fontSize:"16pt"})
-      }
+        setLabel({textAlign:"left",fontFamily:"Garamond",fontSize:"14pt"})
+      }                      
+        // TRENLENS <br/>Created BY  BC200405344@vu.edu.pk
+
       
       },[title]);
 

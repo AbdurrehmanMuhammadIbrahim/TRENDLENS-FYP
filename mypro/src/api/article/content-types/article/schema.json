@@ -24,14 +24,6 @@
         }
       }
     },
-    "desc": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
@@ -60,7 +52,7 @@
       "target": "api::comment.comment",
       "mappedBy": "articles"
     },
-    "description": {
+    "desc": {
       "pluginOptions": {
         "i18n": {
           "localized": true

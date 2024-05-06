@@ -98,7 +98,7 @@ const Footer = () => {
             <div className="bottom-bar">
                 <div className="bottom-bar-content">
                     <span className="ftr-text">
-                        Mindmap 2023 CREATED BY<br/>BC200405344@vu.edu.pk
+                        TRENLENS <br/>Created BY  BC200405344@vu.edu.pk
                         
                     </span>
                     {/* <img src={Payment} /> */}
