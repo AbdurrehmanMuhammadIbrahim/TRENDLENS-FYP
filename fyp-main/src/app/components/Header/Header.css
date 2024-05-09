@@ -5,7 +5,7 @@
     color: #f9f9f9;
     display: flex;
     padding: 0 10px;
-
+min-height: 50px;
     /* border-bottom: 1px solid; */
     /* background: rgb(237,160,226); */
     background: radial-gradient( rgba(75,137,201,1) 0%, rgba(7,41,77,1) 100%);
@@ -17,12 +17,15 @@
 }
 
 .trend-head{
-  margin:2px 0px ;
+  margin:4px 0px ;
   font-size: 22pt;
   /* font-family: cursive; */
   font-style: italic;
   font-family: cursive,jameel noori Nastaleeq;
+  @media (max-width: 569px) {
+display: none;
 
+            }
 }
     .header-content {
         
@@ -63,7 +66,7 @@
         font-weight: 700;
       /* margin-left: 2px; */
         /* width: 20%; */
-
+    
     @media (max-width: 769px) {
            
 display: none;
@@ -72,16 +75,17 @@ display: none;
     }
  .hd-right {
     font-size: 24px;
-       /* margin-left: auto; 
-margin-right: 0; */
+       margin-left: auto; 
+margin-right: 0;
 position: absolute;
 right: 10px;
-       
         cursor: pointer;
+
         @media (min-width: 769px) {
            
 display: none;
         }
+      
     }
     .right svg {
             font-size: 20px;
@@ -153,7 +157,7 @@ font-weight: 600;
 font-size: 12pt;
 /* padding-left:30px; */
 
-padding: 0px 20px 0px 0px;
+/* padding: 0px 20px 0px 0px; */
 /* min-width: 130px;
 width: 100%; */
 }
@@ -203,14 +207,15 @@ width: 100%; */
    font-size: 12pt;
    font-weight: 700;
    color: white;
-
+  
     /* -webkit-appearance: none;
     -moz-appearance: none; */
   }
   
   /* button:hover { background-color: lightgray; } */
   .toggle:focus,
-  .toggle:active { outline: none; }
+  .toggle:active { outline: none; 
+   }
   .toggle::-moz-focus-inner { border: 0; }
   
   .pin {
@@ -230,9 +235,9 @@ width: 100%; */
     text-align: left;
     padding-left: 10px;
     font-size: 10pt;
-
-  }
   
+  }
+
   .toggle.on .pin {
     left: 59px;
     color: #000;

@@ -59,7 +59,13 @@ const locale = useParams();
                 className="dropdown-content"
                 style={{ display: isActive ? "block" : "none" }}
             >
+              
                    {categories?.data?.map((item, index) => (
+                          
+                          <Link href={`/${locale.locale}/Category/${item?.attributes.title}`} 
+                          className='drop-Link'
+                       
+                          >
                 <div
                 key={index}
                     onClick={(e) => {
@@ -70,14 +76,15 @@ const locale = useParams();
                 >
                   
                    
-                    <Link href={`/${locale.locale}/Category/${item?.attributes.title}`} 
+                    {/* <Link href={`/${locale.locale}/Category/${item?.attributes.title}`} 
                      className='drop-Link'
                   
-                     >
+                     > */}
                                         {item?.attributes.title} / {item?.attributes.urduTitle}
-                                    </Link>
+                                    {/* </Link> */}
                                  
                 </div>
+                </Link>
                    ))}
             
             </div>

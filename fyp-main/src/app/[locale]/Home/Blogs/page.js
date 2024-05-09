@@ -75,7 +75,8 @@ export default function Blogs() {
 
                         <div>
                             <h2 >
-                            {data?.data[0].attributes?.title}
+                          
+                            {truncateText(`${data?.data[0].attributes?.title}`, 80)}
                                {/* Blog Title */}
                             </h2>
                         </div>
@@ -115,7 +116,8 @@ export default function Blogs() {
                             </div>
                             <div className='blog-text'>
                                 <h2 className='title-Blog'>
-                                {item?.attributes.title}
+                                {/* {item?.attributes.title} */}
+                                {truncateText(`${item?.attributes.title}`, 70)}
                                 </h2>
                                 <p> 
                                     {truncateText(`${item?.attributes.desc}`, 140)}

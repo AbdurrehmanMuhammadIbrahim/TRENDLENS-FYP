@@ -40,7 +40,7 @@
     /* .prod-details {
     } */
         .arc-card-title {
-            font-size: 22pt;
+            font-size: 16pt;
             font-weight: 900;
             display: block;
             margin: 0px auto;
@@ -50,7 +50,7 @@
             /* white-space: nowrap; */
             /* overflow: hidden; */
             @media  (min-width: 768px)  {
-                font-size: 18px;
+                font-size: 22px;
                 margin-bottom: 10px;
             }
         }
@@ -73,6 +73,7 @@
           
         .arc_btn{
             width:50%; 
+          
             margin: 2px auto;
             font-size:14px;
 
@@ -84,7 +85,10 @@
                       padding: 7px; 
                       text-align:center!important;
                      
-                    
+                      @media (max-width: 569px) {
+                        font-size:10px;
+                        min-width: 80px;
+                                    }
            }
            .arc_btn:hover  {
                transform: scale(1.1); /* Increase the scale factor to make it zoom more */

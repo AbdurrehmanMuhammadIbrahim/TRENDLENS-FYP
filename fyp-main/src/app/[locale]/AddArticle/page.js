@@ -86,9 +86,13 @@ categories:" "
       });
       // if (response.ok) {
       console.log('Article created successfully', response.data);
-      // } else {
-      //   console.error('Failed to create article');
-      // }
+      setFormData({
+        title: '',
+        desc: '',
+        categories: '',
+        locale: '',
+        image:""
+    });
 
 
 
@@ -160,7 +164,7 @@ categories:" "
 
 </div>
             <div>
-              <textarea placeholder='Your Article' type="textarea" id='arc-InpID' name="desc" value={formData.desc} onChange={handleChange}></textarea>
+              <textarea placeholder='Your Article' type="textarea" id='arc-txtID' name="desc" value={formData.desc} onChange={handleChange}></textarea>
 
             </div>
             <div className='arc-Btn' type="submit" onClick={handleSubmit} > Post Comment</div>

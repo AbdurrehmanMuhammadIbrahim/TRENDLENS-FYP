@@ -106,11 +106,11 @@ flex: 3.5;
     width: 100%;
     color: black;
    
-    /* margin-top: 20px; */
+    /* margin-top: -10px; */
     /* line-height: 2px; */
 
     @media (min-width: 768px) {
-        /* margin-top: -16px; */
+        margin-top: -12px;
 flex:3;   
  }
 }

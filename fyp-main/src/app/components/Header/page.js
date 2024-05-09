@@ -39,7 +39,7 @@ const locale =useParams();
     const [scrolled, setScrolled] = useState(false);
     const [showsidebar, setShowsidebar] = useState(false);
     const [searchModal, setSearchModal] = useState(false);
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState("");
 
     const [label, setLabel] = useState();
     const [flex,setFlex] = useState()
@@ -50,7 +50,7 @@ const locale =useParams();
         setLabel({fontSize:"18pt",gap:30,fontFamily:'Jameel Noori Nastaleeq',margin:"0px auto"})
     }
     // else if(locale.locale === 'en'){
-    //   setLabel({textAlign:"left"})
+    //   setLabel({textAlign:"left",})
     // }
     },[locale]);
 
@@ -65,7 +65,7 @@ const locale =useParams();
             return '/en' // English link
           
         } 
-        if(!toggle)
+        else
         {
             return '/ur'; // Urdu link
         }
@@ -113,12 +113,12 @@ const locale =useParams();
                 </li>
             ))}
             <li  onClick={() => setSearchModal(true)}> <FaSearchPlus size={16}/></li>
-            <li><Link  href={getLanguageLink()}  >
+           
+            <li ><Link   href={getLanguageLink()}  >
 
 <button  onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
 {toggle ? 'English' : 'اردو'}
 <span className="pin" />
-       
         </button>
               
      
@@ -129,6 +129,17 @@ const locale =useParams();
                     </div>
                     <div className="hd-right" >
 
+                    <span ><Link   href={getLanguageLink()}  >
+
+<button style={{marginRight:"10pt"}} onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
+{toggle ? 'English' : 'اردو'}
+<span className="pin" />
+        </button>
+              
+     
+     
+    </Link>
+    </span>
                         <span
                             className="menu-icon" style={label}
                             onClick={() => setShowsidebar(true)}
@@ -136,6 +147,7 @@ const locale =useParams();
                             {/* <FaThMenuOutline /> */}
                             {/* {!!cartCount && <span>{cartCount}</span>} */}
                         </span>
+
                     </div>
                 </div>
             </header>

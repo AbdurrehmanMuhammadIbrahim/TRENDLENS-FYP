@@ -15,7 +15,7 @@ const Category = ({ categories }) => {
 
 
 </div>
-                <div className="categories">
+                <div className="categories" >
                 {categories?.data?.map((item) => (
                  <div key={item.id}
                             className="category"
