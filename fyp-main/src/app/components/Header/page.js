@@ -11,6 +11,7 @@ import FtrImg from "../../assets/img1.jpeg"
 import Image from 'next/image';
 import Search from "../Search/page";
 import { useTranslations } from "next-intl";
+import Cookies from 'js-cookie';
 
 
 
@@ -19,9 +20,9 @@ import { useTranslations } from "next-intl";
 const Header = () => {
     const t = useTranslations("Home");
 const locale =useParams();
-// const cookieStore = Cookies()
+// const jwt =  Cookies.get("token")
 
-
+// console.log("hiome",jwt)
 
     const navItems = [
         { text: `${t("Home-link")}`, href: '/' },
@@ -140,9 +141,12 @@ const locale =useParams();
      
     </Link>
     </span>
+    <span style={{marginRight:20}}  onClick={() => setSearchModal(true)}> <FaSearchPlus size={16}/></span>
+
                         <span
                             className="menu-icon" style={label}
                             onClick={() => setShowsidebar(true)}
+                        
                         ><MdOutlineMenuOpen  size={24}/>
                             {/* <FaThMenuOutline /> */}
                             {/* {!!cartCount && <span>{cartCount}</span>} */}
