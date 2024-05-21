@@ -3,24 +3,42 @@ import { createContext,useState} from 'react'
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
 
+// context/AuthContext.js
+// import { useRouter } from 'next/router';
+
 export const  Context = createContext();
+// const AuthContext = createContext();
 
 const AppContext =({children}) => {
+
     const [categories, setCategories] = useState();
     const [articles,setArticles, ] = useState();
     const [sliders, setSliders] = useState();
     const [singleArticle,setSingleArticle] =useState();
     const [about, setAbout] = useState();
     const [toggle, setToggle] = useState(true);
-    // const [contact,setContact]= useState();
-    // const [Singblog,setSingBlog] = useState();
-    // const [Singpublications,setSingPublications] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const router = useRouter();
     const location = useRouter();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const login = (token) => {
+    localStorage.setItem('token', token);
+    setIsAuthenticated(true);
+    router.push('/AddArticle');
+  };
+
+ 
 
     return (
         <Context.Provider
@@ -32,18 +50,16 @@ const AppContext =({children}) => {
             singleArticle,
             about,
             toggle,
-            // contact,
-            // Singblog,
-            // Singpublications,
+            isAuthenticated, 
+            login, 
+
 
             setArticles, 
            setCategories, 
             setSliders,   
             setAbout,    
             setToggle,   
-        //    setContact,          
            setSingleArticle,           
-        //    setSingPublications
 
         }}
     >

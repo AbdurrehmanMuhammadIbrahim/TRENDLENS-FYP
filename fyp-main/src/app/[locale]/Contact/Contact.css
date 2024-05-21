@@ -1,74 +1,74 @@
-.cont-container{
+.cont-container {
     max-width: 1200px;
-    /* margin-top: 90pt; */
     margin: 50pt auto;
-     padding: 0 20px  ;
+    padding: 0 20px;
 }
-.Div1{
-background-color: rgb(7, 41, 77);
+
+.Div1 {
+    background-color: rgb(7, 41, 77);
     height: 290px;
     text-align: center;
 }
-.Cnt-Pb-head{
+
+.Cnt-Pb-head {
     color: aliceblue;
     font-size: 38px;
     font-weight: 700;
     line-height: 700%;
 }
-.Cnt-Main{
+
+.Cnt-Main {
     display: flex;
     flex-direction: column;
     margin-top: 60px;
-    @media  (min-width: 1048px) {
+
+    @media (min-width: 1048px) {
         flex-direction: row;
     }
 }
-.Cnt-detailed{
+
+.Cnt-detailed {
     width: 100%;
-    
-@media  (min-width: 1048px) {
-    max-width: 50%;
+
+    @media (min-width: 1048px) {
+        max-width: 50%;
     }
 }
 
-.Cnt-detailed h2{
+.Cnt-detailed h2 {
     margin-bottom: 50px;
     font-size: 32px;
     font-weight: 700;
     line-height: 1;
     color: rgb(7, 41, 77);
 }
-.Cnt-detailed p{
-    margin-bottom: 50px;
-width: 100%;
-line-height: 2;
 
-    @media  (min-width: 1059px) {
-    max-width: 480px;
-}
-    /* font-size: 32px; */
-    /* font-weight: 700; */
+.Cnt-detailed p {
+    margin-bottom: 50px;
+    width: 100%;
+    line-height: 2;
+
+    @media (min-width: 1059px) {
+        max-width: 480px;
+    }
+
 }
 
 .Cnt-item {
     display: flex;
     margin-bottom: 10px;
     max-width: 350px;
-    
+
 }
 
 .Cnt-item svg {
     flex-shrink: 0;
     font-size: 18px;
     margin-right: 10px;
-    /* margin-top: 2px; */
-  
     color: rgb(252, 223, 60);
 }
 
-/* .Cnt-item span {
-  
-} */
+
 .Cnt-text {
     display: block;
     margin-bottom: 10px;
@@ -77,92 +77,87 @@ line-height: 2;
 
 
 
-.Cnt-Que h2{
-    /* margin-bottom: 50px; */
+.Cnt-Que h2 {
     font-size: 32px;
     font-weight: 700;
     line-height: 1;
     color: rgb(7, 41, 77);
-    @media  (max-width: 1059px) {
-margin-top: 60px;    }
+
+    @media (max-width: 1059px) {
+        margin-top: 60px;
+    }
 
 }
-.Cnt-inp-name{
+
+.Cnt-inp-name {
     display: flex;
     width: 100%;
-    /* margin: 0%!important; */
-
 }
-.Cnt-detailed-span{
+
+.Cnt-detailed-span {
     display: flex;
     flex-direction: column;
-
-/* margin: 2% 0px; */
 }
-.Cnt-detailed-span span{
+
+.Cnt-detailed-span span {
     font-size: 14px;
     padding: 8px;
     max-width: 350px;
 }
-.Cnt-inp{
-    /* padding:  50px 50px 50px; */
+
+.Cnt-inp {
     margin-top: -20px;
-color: rgb(138, 138, 138,0.05);
-/* margin-bottom: 100px; */
+    color: rgb(138, 138, 138, 0.05);
 }
 
-.Cnt-inp input{
-/* padding: 10px 12px; */
-margin: 2% ;
-background-color: rgb(138, 138, 138,0.05);
-color: #8a8a8a;
-font-weight: 600;
+.Cnt-inp input {
+    margin: 2%;
+    background-color: rgb(138, 138, 138, 0.05);
+    color: #8a8a8a;
+    font-weight: 600;
     width: 96%;
     overflow: hidden;
     height: 45px;
     font-size: 15px;
     border-radius: 3px;
-    border: 0.1px solid rgb(138, 138, 138,0.5);
-}
-.Cnt-inp textarea{
-    /* padding: 10px 12px; */
-      margin: 2% ;
-      background-color: rgb(138, 138, 138,0.05);
-      color: #8a8a8a;
-      font-weight: 500;
-        line-height: 23px;
-        width: 96%;
-        max-width: 96%;
-        min-width: 96%;
-        overflow: hidden;
-        height: 145px;
-        font-size: 15px;
-        border-radius: 3px;
-        border: 0.5px solid rgb(138, 138, 138,0.5);
-    }
-    
-#InpID::placeholder {
-    color: rgb(138, 138, 138,0.5);
+    border: 0.1px solid rgb(138, 138, 138, 0.5);
 }
 
-.Cnt-Btn{
+.Cnt-inp textarea {
+    margin: 2%;
+    background-color: rgb(138, 138, 138, 0.05);
+    color: #8a8a8a;
+    font-weight: 500;
+    line-height: 23px;
+    width: 96%;
+    max-width: 96%;
+    min-width: 96%;
+    overflow: hidden;
+    height: 145px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 0.5px solid rgb(138, 138, 138, 0.5);
+}
+
+#InpID::placeholder {
+    color: rgb(138, 138, 138, 0.5);
+}
+
+.Cnt-Btn {
     width: 96%;
     background-color: rgb(7, 41, 77);
     height: 45px;
     font-weight: 600;
     color: aliceblue;
-    font-size:15px;
+    font-size: 15px;
     border-radius: 3px;
-text-align: center;
-    margin: 2% ;
-line-height: 39px;
-&:hover {
-    /* opacity: 0.6; */
-    background-color:#ffc600;
-    color: #000;
-}}
+    text-align: center;
+    margin: 2%;
+    line-height: 39px;
 
-/* 
-#InpID::placeholder {
-    color: #ab34c5;
-  } */
+    &:hover {
+        background-color: #ffc600;
+        color: #000;
+    }
+}
+

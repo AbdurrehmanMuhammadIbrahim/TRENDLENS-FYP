@@ -3,102 +3,106 @@
     height: 300px;
     display: flex;
     align-items: center;
-    background: radial-gradient(circle, rgba(75,137,201,1) 20%, rgba(7,41,77,1) 80%);
+    background: radial-gradient(circle, rgba(75, 137, 201, 1) 20%, rgba(7, 41, 77, 1) 80%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-    .newsletter-content {
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 auto;
-        text-align: center;
+
+.newsletter-content {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.small-text {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.big-text {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 30px;
+
+    @media (min-width: 768px) {
+        font-size: 28px;
     }
-        .text {
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.5);
-        }
+}
 
-    
+.form {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
 
-    .small-text {
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        color: rgba(0, 0, 0, 0.5);
+.form-inp {
+    width: 150px;
+    height: 40px;
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 12px;
+    font-size: 16px;
+    outline: none;
+
+    @media (min-width: 768px) {
+        width: 300px;
+    }
+}
+
+.form-btn {
+    outline: 0;
+    border: 0;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background: rgba(75, 137, 201, 1);
+    border: 3px solid rgba(7, 41, 77, 1);
+
+    &:hover {
+        background-color: rgba(7, 41, 77, 1);
+        border-color: rgb(135, 181, 227);
     }
 
-    .big-text {
-        margin-bottom: 20px;
-        font-size: 22px;
-        line-height: 30px;
-        font-weight: 500;
-        text-transform: uppercase;
-        padding: 0 30px;
-
-        @media (min-width: 768px) {
-            font-size: 28px;
-        }
+    @media (min-width: 768px) {
+        width: 120px;
     }
+}
 
-    .form {
-        display: flex;
-        gap: 5px;
-        margin-bottom: 10px;
-    }
-        .form-inp {
-            width: 150px;
-            height: 40px;
-            border-radius: 0;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            padding: 0 12px;
-            font-size: 16px;
-            outline: none;
 
-            @media (min-width: 768px) {
-                width: 300px;
-            }
-        }
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
 
-        .form-btn {
-            outline: 0;
-            border: 0;
-            height: 40px;
-            width: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 16px;
-            color: white;
-            background: rgba(75,137,201,1);
-            border: 3px solid rgba(7,41,77,1);
-            &:hover {
-                background-color: rgba(7,41,77,1);
-                border-color: rgb(135, 181, 227);
-            }
-        
-            @media (min-width: 768px) {
-                width: 120px;
-            }
-        }  
-      
-
-    .social-icons {
-        display: flex;
-        gap: 10px;
-    }
-        .icon {
-            width: 30px;
-            height: 30px;
-            background: rgba(2, 5, 65, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-        }
-    
+.icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(2, 5, 65, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}

@@ -1,7 +1,7 @@
 "use client"; // This is a client component 👈🏽
-import { useEffect, useState ,useContext} from "react";
-import { FaSearchPlus  } from "react-icons/fa";
-import { MdOutlineMenuOpen  } from "react-icons/md";
+import { useEffect, useState, useContext } from "react";
+import { FaSearchPlus } from "react-icons/fa";
+import { MdOutlineMenuOpen } from "react-icons/md";
 import { useParams } from "next/navigation";
 import "./Header.css";
 import Sidebar from "./Sidebar/Sidebar"
@@ -15,26 +15,20 @@ import Cookies from 'js-cookie';
 
 
 
-
-
 const Header = () => {
     const t = useTranslations("Home");
-const locale =useParams();
-// const jwt =  Cookies.get("token")
-
-// console.log("hiome",jwt)
+    const locale = useParams();
 
     const navItems = [
         { text: `${t("Home-link")}`, href: '/' },
-        { text: `${t("Dropdown-link")}`, isDropdown: true }, 
-        // className={`toggle ${toggle ? 'on' : 'off'}`} 
+        { text: `${t("Dropdown-link")}`, isDropdown: true },
         { text: `${t("Articles-link")}`, href: '/Articles/AllArticles' },
         { text: `${t("About-link")}`, href: '/About' },
         { text: `${t("Contact-link")}`, href: '/Contact' },
-        {text:  `${t("Add-Article-link")}`,href: '/AddArticle'}
+        { text: `${t("Add-Article-link")}`, href: '/AddArticle' }
     ];
-   
-    
+
+
 
 
     const [scrolled, setScrolled] = useState(false);
@@ -43,36 +37,33 @@ const locale =useParams();
     const [toggle, setToggle] = useState("");
 
     const [label, setLabel] = useState();
-    const [flex,setFlex] = useState()
+    const [flex, setFlex] = useState()
 
     useEffect(() => {
-    if(locale.locale === 'ur'){
-      setFlex({flexDirection:"row-reverse"})
-        setLabel({fontSize:"18pt",gap:30,fontFamily:'Jameel Noori Nastaleeq',margin:"0px auto"})
-    }
-    // else if(locale.locale === 'en'){
-    //   setLabel({textAlign:"left",})
-    // }
-    },[locale]);
+        if (locale.locale === 'ur') {
+            setFlex({ flexDirection: "row-reverse" })
+            setLabel({ fontSize: "18pt", gap: 30, fontFamily: 'Jameel Noori Nastaleeq', margin: "0px auto" })
+        }
+       
+    }, [locale]);
 
     const toggleOn = () => {
         setToggle(toggle => !toggle)
         // console.log("toggle click")
-       
+
     }
 
     const getLanguageLink = () => {
         if (toggle) {
             return '/en' // English link
-          
-        } 
-        else
-        {
+
+        }
+        else {
             return '/ur'; // Urdu link
         }
     };
 
-    
+
     const handleScroll = () => {
         const offset = window.scrollY;
         if (offset > 100) {
@@ -90,66 +81,64 @@ const locale =useParams();
                 className={`main-header ${scrolled ? "sticky-header" : ""}`}
             >
 
-<div className="trend-head" >
-{/* <Image src={FtrImg} width={50} alt="headerImg"/> */}
-{/* TREND-LENS */}
-{t("title")}
+                <div className="trend-head" >
+                    {t("title")}
 
-</div>
-                
+                </div>
+
                 <div className="header-content" style={label}>
-             
+
                     <div className="center" >
                         <ul className="left" style={label}>
-                        {navItems.map((navItem, index) => (
-                <li key={index} style={label}>
-                    {navItem.isDropdown ? (
-                        <Dropdown />
-                    ) : (
-                        <Link href={navItem.href} className='header-Link' >
-                            {navItem.text}
-                        </Link>
-                    )}
-                   
-                </li>
-            ))}
-            <li  onClick={() => setSearchModal(true)}> <FaSearchPlus size={16}/></li>
-           
-            <li ><Link   href={getLanguageLink()}  >
+                            {navItems.map((navItem, index) => (
+                                <li key={index} style={label}>
+                                    {navItem.isDropdown ? (
+                                        <Dropdown />
+                                    ) : (
+                                        <Link href={navItem.href} className='header-Link' >
+                                            {navItem.text}
+                                        </Link>
+                                    )}
 
-<button  onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
-{toggle ? 'English' : 'اردو'}
-<span className="pin" />
-        </button>
-              
-     
-     
-    </Link>
-    </li>
+                                </li>
+                            ))}
+                            <li onClick={() => setSearchModal(true)}> <FaSearchPlus size={16} /></li>
+
+                            <li ><Link href={getLanguageLink()}>
+
+                                <button onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
+                                    {toggle ? 'English' : 'اردو'}
+                                    <span className="pin" />
+                                </button>
+
+
+
+                            </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="hd-right" >
 
-                    <span ><Link   href={getLanguageLink()}  >
+                        <span >
+                            <Link href={getLanguageLink()}  >
 
-<button style={{marginRight:"10pt"}} onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
-{toggle ? 'English' : 'اردو'}
-<span className="pin" />
-        </button>
-              
-     
-     
-    </Link>
-    </span>
-    <span style={{marginRight:20}}  onClick={() => setSearchModal(true)}> <FaSearchPlus size={16}/></span>
+                                <button style={{ marginRight: "10pt" }} onClick={toggleOn} className={`toggle ${toggle ? 'on' : 'off'}`}  >
+                                    {toggle ? 'English' : 'اردو'}
+                                    <span className="pin" />
+                                </button>
+
+
+
+                            </Link>
+                        </span>
+                        <span style={{ marginRight: 20 }} onClick={() => setSearchModal(true)}> <FaSearchPlus size={16} /></span>
 
                         <span
                             className="menu-icon" style={label}
                             onClick={() => setShowsidebar(true)}
-                        
-                        ><MdOutlineMenuOpen  size={24}/>
-                            {/* <FaThMenuOutline /> */}
-                            {/* {!!cartCount && <span>{cartCount}</span>} */}
+
+                        ><MdOutlineMenuOpen size={24} />
+                         
                         </span>
 
                     </div>

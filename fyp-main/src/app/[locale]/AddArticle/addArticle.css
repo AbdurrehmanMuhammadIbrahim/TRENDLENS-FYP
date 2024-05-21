@@ -1,11 +1,9 @@
-
-
 /* **************************LEAVE A COMMENT CSSSSSSS******************** */
-.sing-main{
+.sing-main {
     max-width: 1340pt;
-    /* margin: 25px 0px; */
-    margin:50pt auto;
+    margin: 50pt auto;
     padding: 0 20px;
+
     @media (min-width: 568px) {
         padding: 0 15%;
     }
@@ -19,9 +17,10 @@
     line-height: 32px;
     color: rgb(7, 41, 77);
 }
-.logout-btn{
-     margin-left:0px auto;
-float: right;
+
+.logout-btn {
+    margin-left: 0px auto;
+    float: right;
     padding: 0px 20px;
     cursor: pointer;
     background-color: rgb(7, 41, 77);
@@ -31,19 +30,15 @@ float: right;
     font-size: 17px;
     border-radius: 3px;
     text-align: center;
-    /* margin: 1% ; */
-    /* margin-left: 2%; */
     line-height: 50px;
 
     &:hover {
-        /* opacity: 0.6; */
         background-color: #ffc600;
         color: #000;
     }
 }
 
 .arc-inp-name {
-    /* display: flex; */
     width: 100%;
     gap: 15px;
     flex-direction: column;
@@ -52,23 +47,20 @@ float: right;
         flex-direction: row;
     }
 
-    /* margin: 0%!important; */
-
 }
 
 .arc-inp {
-    /* padding:  50px 50px 50px; */
-    /* color: rgb(138, 138, 138, 0.05); */
+
     margin-bottom: 100px;
 }
-#arc-txtID{
+
+#arc-txtID {
     overflow-y: scroll;
 }
+
 .arc-inp input {
-    /* padding: 10px 12px; */
     margin: 1% 0%;
     padding: 0px 5px;
-    /* background-color: rgb(138, 138, 138,0.05); */
     color: hsl(0, 0%, 3%);
     font-weight: 600;
     width: 100%;
@@ -78,14 +70,14 @@ float: right;
     border-radius: 3px;
     border: 0.1px solid rgb(138, 138, 138, 0.5);
 }
-#arc-InpSlt{
+
+#arc-InpSlt {
     margin-top: 14pt;
 }
+
 .arc-inp select {
-    /* padding: 10px 12px; */
     margin: 1% 0%;
     padding: 0px 5px;
-    /* background-color: rgb(138, 138, 138,0.05); */
     color: hsl(0, 0%, 3%);
     font-weight: 600;
     width: 100%;
@@ -95,6 +87,7 @@ float: right;
     border-radius: 3px;
     border: 0.1px solid rgb(138, 138, 138, 0.5);
 }
+
 .arc-inp textarea {
     padding: 10px 12px;
     margin: 3% 0%;
@@ -115,12 +108,15 @@ float: right;
 #InpID::placeholder {
     color: rgb(138, 138, 138, 0.5);
 }
-#arc-InpFile{
+
+#arc-InpFile {
     padding: 10px 12px;
 }
-#arc-InpFile p{
+
+#arc-InpFile p {
     color: #000;
 }
+
 .arc-Btn {
     margin: 1% 0%;
     /* width: 100px; */

@@ -1,8 +1,9 @@
-.sing-main{
+.sing-main {
     max-width: 1340pt;
     /* margin: 25px 0px; */
-    margin:50pt auto;
+    margin: 50pt auto;
     padding: 0 20px;
+
     @media (min-width: 568px) {
         padding: 0 15%;
     }
@@ -39,8 +40,9 @@
     border-radius: 5px;
     overflow: hidden;
     display: block;
-   
- margin: 20pt auto;
+
+    margin: 20pt auto;
+
     @media (min-width: 568px) {
         max-height: 300px;
     }
@@ -58,11 +60,13 @@
     }
 
 }
-.sing-text p{
-line-height: 2;
-/* font-size: 18pt; */
-font-family:'Times New Roman', Times, serif;
+
+.sing-text p {
+    line-height: 2;
+    /* font-size: 18pt; */
+    font-family: 'Times New Roman', Times, serif;
 }
+
 .sig-Article-cmt-svg {
     display: flex;
 }
@@ -102,15 +106,13 @@ font-family:'Times New Roman', Times, serif;
 .blg-leave {
     margin: 1%;
     margin-bottom: 1ch;
-    font-size: 22pt!important;
+    font-size: 22pt !important;
     font-weight: 900;
-    /* line-height: 32px; */
     color: rgb(7, 41, 77);
 }
 
 .blg-inp-name {
     display: flex;
-    /* width: 100%; */
     gap: 15px;
     flex-direction: column;
 
@@ -118,21 +120,17 @@ font-family:'Times New Roman', Times, serif;
         flex-direction: row;
     }
 
-    /* margin: 0%!important; */
 
 }
 
 .blg-inp {
-    /* padding:  50px 50px 50px; */
     color: rgb(138, 138, 138, 0.05);
     margin-bottom: 100px;
 }
 
 .blg-inp input {
-    /* padding: 10px 12px; */
     margin: 1% 0%;
     padding: 0px 5px;
-    /* background-color: rgb(138, 138, 138,0.05); */
     color: hsl(0, 0%, 3%);
     font-weight: 600;
     width: 100%;
@@ -186,30 +184,34 @@ font-family:'Times New Roman', Times, serif;
 }
 
 /* ///////////////////////////comments/////////////// */
-.cmt-main{
-margin: 17pt 10pt;
-border-bottom: 0.5px solid #818080;
+.cmt-main {
+    margin: 17pt 10pt;
+    border-bottom: 0.5px solid #818080;
 
-font-family: 'Times New Roman',jameel noori Nastaleeq;
+    font-family: 'Times New Roman', jameel noori Nastaleeq;
 }
-.cmt-name{
+
+.cmt-name {
     font-size: 18pt;
     margin-bottom: 3pt;
     font-weight: 900;
 
 }
-.cmt-comment{
+
+.cmt-comment {
     /* font-size: 12pt; */
     margin-bottom: 3pt;
-margin-left: 10pt;
+    margin-left: 10pt;
     font-weight: 60;
 
 }
+
 .cmt-msg {
     text-align: center;
     margin-top: 20px;
     color: rgba(0, 0, 0, 0.5);
 }
-.cmt-head{
+
+.cmt-head {
     color: #000;
 }

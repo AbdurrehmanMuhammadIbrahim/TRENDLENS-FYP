@@ -1,5 +1,5 @@
 "use client";
-import React,{useContext,useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import Slider from '../../components/Slider/page';
 import Blogs from './Blogs/page';
 import { fetchDataFromApi } from "../../utils/api";
@@ -11,39 +11,37 @@ import { useParams } from 'next/navigation';
 // import Newsletter from "@strapi-newsletter/react";
 
 
-const Home= () => {
+const Home = () => {
   const locale = useParams();
-  const { categories, setCategories,articles,setArticles, } = useContext(Context);
+  const { categories, setCategories, articles, setArticles, } = useContext(Context);
 
   useEffect(() => {
-  getCategories();
-  getarticles();
+    getCategories();
+    getarticles();
   }, []);
 
   const getarticles = () => {
     fetchDataFromApi(`/api/articles?populate=*&locale=${locale.locale}&pagination[start]=0&pagination[limit]=8&sort=createdAt:asc`).then((res) => {
-      console.log("Arc-data",res)
+      console.log("Arc-data", res)
       setArticles(res);
     });
-    };
+  };
 
-  
+
   const getCategories = () => {
     fetchDataFromApi(`/api/categories?populate=*&locale=${locale.locale}`).then((res) => {
-      console.log("data",res)
-        setCategories(res);
+      console.log("data", res)
+      setCategories(res);
     });
-    };
+  };
   return (
     <div>
-      <Slider/>
-      <Category categories={categories}/>
-      <Blogs/>
-<Article headingText="Popular Articles" articles={articles}/>
+      <Slider />
+      <Category categories={categories} />
+      <Blogs />
+      <Article headingText="Popular Articles" articles={articles} />
+      <Newsletter />
 
-      {/* <Newsletter strapiEndpoint="http://localhost:1337/strapi-newsletter/newsletter/subscribe" buttonText="Subscribe" /> */}
-<Newsletter/>
-      
     </div>
   )
 }

@@ -2,12 +2,9 @@
 import React,{useState,useEffect} from "react";
 import { useParams } from 'next/navigation'
 import { useTranslations } from "next-intl";
-
-// import { useNavigate } from "react-router-dom";
 import "./article.css";
-// import Image from "next/image";
-// import img1 from "../../assets/img1.jpeg"
 import Link from "next/link";
+
 
 const Article = ({ data, title }) => {
     // const navigate = useNavigate();
@@ -40,7 +37,6 @@ const Article = ({ data, title }) => {
     return (
         <div
             className="PRproduct-card"
-        // onClick={() => navigate("/product/" + id)}
         >
             <div className="PRthumbnail">
 
@@ -61,7 +57,7 @@ const Article = ({ data, title }) => {
              
             </div>
            
-          <Link style={{textDecoration:"none"}} href={`/${locale.locale}/Articles/${data?.title}`}>
+          <Link style={{textDecoration:"none"}} href={`/${locale.locale}/Articles/${data?.slug}`}>
 
           <div className="arc_btn" style={label}>{t("read-btn")}</div>
           </Link>

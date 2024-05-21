@@ -7,10 +7,7 @@ import { IntlProvider } from 'react-intl';
   const t = useTranslations("Home");
   return (
     <main>
-      {/* <AppContext> */}
-        {/* <div> {t("title")}</div> */}
       <Home/>
-      {/* </AppContext> */}
     </main>
   );
 }

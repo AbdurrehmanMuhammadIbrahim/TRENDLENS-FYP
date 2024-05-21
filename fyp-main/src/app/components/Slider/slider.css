@@ -3,7 +3,7 @@
   position: relative;
   z-index: -99;
   overflow: hidden;
- 
+
 }
 
 .slide {
@@ -20,7 +20,7 @@
 
 .slide img {
   width: 100%;
-  
+
 }
 
 
@@ -33,16 +33,17 @@
 
     font-size: 15pt;
   }
+
   @media screen and (max-width: 550px) {
     font-size: 12pt;
   }
 }
 
-.image{
+.image {
   @media screen and (min-width: 1080px) {
-    height: 70vh!important;
-  
-    }
+    height: 70vh !important;
+
+  }
 }
 
 
@@ -62,7 +63,7 @@
   color: #eb3e3e;
   padding: 2rem;
   animation: slide-down 1s ease 0.5s;
-   animation-delay: 1s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   visibility: hidden;
 
@@ -121,5 +122,3 @@
   transform: translateY(0);
   transition: all 0.5s ease;
 }
-
-

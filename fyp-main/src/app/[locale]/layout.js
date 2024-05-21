@@ -21,13 +21,10 @@ export default function RootLayout({ children,locale }) {
       <body >
       <NextIntlClientProvider locale={locale} messages={messages}>
       <AppContext value={{ locale }}>
-
         <Header/>
-             
         {children}
         <Footer locale={locale}/>
         </AppContext>
-
         </NextIntlClientProvider>
         </body>
     </html>
