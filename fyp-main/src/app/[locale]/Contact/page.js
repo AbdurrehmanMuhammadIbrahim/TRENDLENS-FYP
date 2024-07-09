@@ -1,13 +1,41 @@
 "use client";
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css"
 import HeroBanner from "../../components/HeroBanner/page";
 import Header from "../../components/Header/page";
+import emailjs from '@emailjs/browser';
 
 
 
 export default function Contact() {
+  const [userInput, setUserInput] = useState({});
 
+  const formSubmitHandler = (e) => {
+      e.preventDefault();
+      emailjs
+      .send(
+        "service_c40hm1c", // Service ID
+        "template_hztao8e", // Template ID
+        userInput,
+            "_zq_5l9zP9wkLJ6kL" // Public Key - https://dashboard.emailjs.com/admin/account
+      )
+      // Below credentials are required to link your email id with contact form you can create your credentials in emailjs.com
+     
+          .then((response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("email is send successfully")
+          })
+          .catch((err) => {
+              console.log("FAILED...", err);
+              alert("please retry")
+          });
+  };
+
+  
+  const onChange = (e) => {
+      let obj = { ...userInput, [e.target.name]: e.target.value };
+      setUserInput(obj);
+  };
   return (
     <div >
 
@@ -50,7 +78,10 @@ export default function Contact() {
             </div>
           </div>
 
-
+          <form
+            
+                onSubmit={formSubmitHandler}
+            >
           <div className='Cnt-Que'>
             <h2>Do you have any questions?
             </h2>
@@ -61,20 +92,20 @@ export default function Contact() {
               <div className="cont-container">
 
                 <div className='Cnt-inp-name'>
-                  <input placeholder='Name' id='InpID'></input>
-                  <input placeholder='Last Name' id='InpID'></input>
+                  <input name="from_name"  onChange={onChange} placeholder='Name' id='InpID'></input>
+                  <input name="from_lastname"  onChange={onChange} placeholder='Last Name' id='InpID'></input>
                 </div>
 
-                <input placeholder='Your Email' id='InpID'></input>
-                <input placeholder='Your Subject' id='InpID'></input>
-                <textarea placeholder='Your message' type="textarea" id='InpID'></textarea>
+                <input name="from_email"  onChange={onChange}  placeholder='Your Email' id='InpID'></input>
+                <input name="email_subject" onChange={onChange}  placeholder='Your Subject' id='InpID'></input>
+                <textarea  onChange={onChange} name="message" placeholder='Your message' type="textarea" id='InpID'></textarea>
 
-                <div className='Cnt-Btn'> Submit</div>
+                <button className='Cnt-Btn'> Submit</button>
 
               </div>
             </div>
           </div>
-
+</form>
         </div>
       </div>
     </div>

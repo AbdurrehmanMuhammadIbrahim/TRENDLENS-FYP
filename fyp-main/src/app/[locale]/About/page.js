@@ -29,7 +29,6 @@ export default function About() {
   const getAbout = () => {
     fetchDataFromApi(`/api/abouts?populate=*&locale=${locale.locale}`).then((res) => {
       setAbout(res);
-      console.log("GFDFG", res)
     });
   };
 

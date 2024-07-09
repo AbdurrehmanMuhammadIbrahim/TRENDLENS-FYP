@@ -110,7 +110,10 @@
     font-weight: 900;
     color: rgb(7, 41, 77);
 }
+#arc-cmt-txt{
+    overflow-y: scroll!important;
 
+}
 .blg-inp-name {
     display: flex;
     gap: 15px;

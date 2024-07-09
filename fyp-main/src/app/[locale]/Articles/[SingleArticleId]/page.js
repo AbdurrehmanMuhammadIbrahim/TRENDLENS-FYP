@@ -14,12 +14,7 @@ import ReactMarkdown from "react-markdown";
 
 export default function SingleArticle() {
   const title = useParams()
-  console.log('title-sin', title)
-
-  console.log(title.SingleArticleId, "sineeeee")
-
   const { data } = useFetch(`/api/articles?populate=*&[filters][slug]=${title.SingleArticleId}&locale=${title.locale}`);
-  // console.log('data-sin', data)
 
   const article = data?.data[0]?.attributes;
 
@@ -42,12 +37,12 @@ export default function SingleArticle() {
 
     // If the field name is "comment" (textarea) and the locale is Urdu
     
-    if (name === ('comment', 'name') && title.locale === 'ur' && value !== '') {
+     if ((name === 'name' || name === 'comment') && title.locale === 'ur' && value !== '') {
       // Check if the input contains Urdu characters or spaces
       const isUrdu = /^[\u0600-\u06FF\s]+$/.test(value);
       // Only update the form state if the input is in Urdu or if it's empty
       if (isUrdu) {
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value});
       }
     } else {
       // For other input fields and conditions, update the form state with any input
@@ -59,7 +54,6 @@ export default function SingleArticle() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData)
 
     const formDataToSend = new FormData();
     formDataToSend.append('data', JSON.stringify({
@@ -70,7 +64,6 @@ export default function SingleArticle() {
       locale: title.locale
 
     }));
-    console.log(formDataToSend)
 
 
 
@@ -90,7 +83,7 @@ export default function SingleArticle() {
         name: '',
         email: '',
         comment: '',
-        articles: ''
+        articles: '',
       });
 
 
@@ -162,7 +155,7 @@ export default function SingleArticle() {
 
             <div>
               <h4 style={label} className="cmt-head">{t("comment-text")}</h4>
-              <textarea type="textarea" id='blg-InpID' name="comment" value={formData.comment} onChange={handleChange}></textarea>
+              <textarea type="textarea" style={label} id='arc-cmt-txt' name="comment" value={formData.comment} onChange={handleChange}></textarea>
 
             </div>
             <div className='blg-Btn' onClick={handleSubmit}> Post Comment</div>

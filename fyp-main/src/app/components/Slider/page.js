@@ -12,8 +12,6 @@ const Slider = () => {
   const title = useParams();
   const t = useTranslations("slider")
 
-  console.log("sld", t.locale)
-
   const sliderData = [
     {
       image: "https://img.freepik.com/premium-photo/news-update_693425-32236.jpg?w=900",
@@ -40,12 +38,10 @@ const Slider = () => {
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
-    // console.log("next");
   };
 
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 0 ? - 1 : currentSlide + 1);
-    // console.log("prev");
   };
 
   function auto() {

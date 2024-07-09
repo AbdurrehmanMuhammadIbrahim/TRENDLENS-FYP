@@ -16,7 +16,6 @@ function comment() {
   }, [title]);
 
   const { data } = useFetch(`/api/comments?populate=*&[filters][articles][slug]=${title.SingleArticleId}&locale=${title.locale}`);
-  console.log("comment", data)
 
   return (
     <div>

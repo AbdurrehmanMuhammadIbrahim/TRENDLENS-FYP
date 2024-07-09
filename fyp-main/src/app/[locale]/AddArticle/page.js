@@ -14,15 +14,13 @@ import withAuth from '../../utils/withAuth';
 
 function AddArticle() {
   const router = useRouter();
-  const locale = useParams();
-  console.log(locale.locale)
+  const languagelocale = useParams();
   const { categories, setCategories } = useContext(Context);
   const { logout } = useContext(Context);
 
 
   const getCategories = () => {
     fetchDataFromApi("/api/categories?populate=*").then((res) => {
-      console.log("cat-data", res)
       setCategories(res);
     });
   };
@@ -30,7 +28,6 @@ function AddArticle() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-console.log("logout-token",token)
     getCategories();
   }, []);
 
@@ -38,7 +35,7 @@ console.log("logout-token",token)
     title: '',
     desc: '',
     image: " ",
-    locale: " ",
+    locale: "",
     categories: " "
   });
 
@@ -63,38 +60,40 @@ console.log("logout-token",token)
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData, "data-form")
     e.preventDefault();
 
     const formDataToSend = new FormData(); 
     formDataToSend.append('data', JSON.stringify({
       title: formData.title,
       desc: formData.desc,
-      locale: formData.locale,
+      locale:languagelocale.locale,
       categories: formData.categories,
       slug:formData.title,
       publishedAt: null,
-    }));
+    })
+  );
     formDataToSend.append('files.image', formData.image); // Append image file
 
 
     try {
       const response = await axios.post("http://localhost:1337/api/articles/?populate=categories", formDataToSend, {
-
         headers: {
           'Content-Type': 'multipart/form-data'
+          
         }
 
 
       });
       // if (response.ok) {
       console.log('Article created successfully', response.data);
+      alert('Article created successfully', response.data);
+
       setFormData({
         title: '',
         desc: '',
         categories: '',
-        locale: '',
-        image: ""
+        // locale: '',
+        image: '',
       });
 
 
@@ -137,16 +136,6 @@ console.log("logout-token",token)
                 <input type="file" accept="image/*" id='arc-InpFile' name="image" onChange={handleChange} />
 
               </div>
-              <div id='arc-InpSlt' >
-
-                <h4  >Please select a language:</h4>
-                <select name="locale" value={formData.locale} onChange={handleChange}  >
-                  <option value=""> select language </option>
-                  <option value={"en"}>ENGLISH</option>
-                  <option value={"ur"}>URDU / اردو</option>
-                </select>
-
-              </div>
 
 
 
@@ -167,7 +156,7 @@ console.log("logout-token",token)
 
             </div>
             <div>
-              <textarea placeholder='Your Article' type="textarea" id='arc-txtID' name="desc" value={formData.desc} onChange={handleChange}></textarea>
+              <textarea placeholder='Your Article' type="textarea" id='arc-txt' name="desc" value={formData.desc} onChange={handleChange}></textarea>
 
             </div>
             <div className='arc-Btn' type="submit" onClick={handleSubmit} > Post Article</div>

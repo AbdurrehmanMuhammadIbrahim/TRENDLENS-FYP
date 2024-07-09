@@ -53,7 +53,7 @@ const Footer = () => {
                     <div className="ft-title">{t("Dropdown-link")}</div>
 
                     {categories?.data?.map((item, index) => (
-                        <Link style={{ textDecoration: "none" }} href={`/${locale.locale}/Category/${item?.attributes.title}`}>
+                        <Link key={index} style={{ textDecoration: "none" }} href={`/${locale.locale}/Category/${item?.attributes.title}`}>
 
                             <div className="ftr-text">
 
@@ -68,7 +68,7 @@ const Footer = () => {
                     <div className="ft-title">Pages</div>
 
                     {navItems.map((navItem, index) => (
-                        <div className="ftr-text">
+                        <div key={index} className="ftr-text">
                             <Link href={navItem.href} className='header-Link' >
                                 {navItem.text}
                             </Link>

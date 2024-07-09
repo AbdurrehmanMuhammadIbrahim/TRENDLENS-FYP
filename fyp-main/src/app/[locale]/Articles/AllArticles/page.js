@@ -13,7 +13,6 @@ const AllArticle = () => {
   // &locale=ur
   const getarticles = () => {
     fetchDataFromApi(`/api/articles/?populate=*&locale=${locale.locale}&sort=createdAt:desc`).then((res) => {
-      console.log("Arc-data", res)
       setArticles(res);
     });
   };

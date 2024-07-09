@@ -24,89 +24,9 @@ const Login = () => {
   const { login } = useContext(Context);
  
 
-  //   try {
-  //     if (user.identifier && user.password) {
-  //       const { data } = await axios.post(url, user);
-  //       console.log(data);
-  //       if (data.jwt) {
-  //         storeUser(data);
-  //         setUser(initialUser);
-  //         // router.push('/AddArticle');
-  //       }
-  //       login(data.data.jwt);
-  //       router.push('/AddArticle');
-  //     }
-     
-  //   } catch (error) {
-  //     alert("please login with right credentials")
-  //     console.log(error);
-  //   }
-  // };
-
 
   return (
-//     <Formik
-//   initialValues={initialUser}
-//   validationSchema={schema}
-//   onSubmit={async (values, { setSubmitting }) => {
-//     setUser(values);
-//     await handleLogin(); // Wait for handleLogin to complete
-//     setSubmitting(false);
-//   }}
-// >
-//   {({
-//     values,
-//     errors,
-//     touched,
-//     handleChange,
-//     handleBlur,
-//     handleSubmit,
-//     isSubmitting,
-//   }) => (
-//         <div className="login">
-//           <div className="login-form">
-//           <form noValidate onSubmit={handleSubmit}>
-//               <span>Login</span>
 
-//               <input
-//                 type="email"
-//                 name="identifier"
-//                 onChange={handleChange}
-//                 onBlur={handleBlur}
-//                 value={values.identifier}
-//                 placeholder="Enter email"
-//                 className="login-form-control inp_text"
-//               />
-//               <p className="error">
-//                 {touched.identifier && errors.identifier && <div>{errors.identifier}</div>}
-//               </p>
-//               <input
-//                 type="password"
-//                 name="password"
-//                 onChange={handleChange}
-//                 onBlur={handleBlur}
-//                 value={values.password}
-//                 placeholder="Enter password"
-//                 className="login-form-control"
-//               />
-//               <p className="error">
-//                 {errors.password && touched.password && errors.password}
-//               </p>
-
-//               {message && <div style={{color:"whiteSm0ke"}}>{message}</div>}
-
-//               <button type="submit"  >
-//                 Login
-//               </button>
-
-//             </form>
-//             <div className="signup-link">
-//               you don't have acccount <Link href="AddArticle/Signup">signUp</Link>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </Formik>
 <Formik
   initialValues={initialUser}
   validationSchema={schema}
@@ -172,7 +92,7 @@ const Login = () => {
 
         </form>
         <div className="signup-link">
-          you don't have acccount <Link href="AddArticle/Signup">signUp</Link>
+          you don't have acccount <Link href="Signup">signUp</Link>
         </div>
       </div>
     </div>

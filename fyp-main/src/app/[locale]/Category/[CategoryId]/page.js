@@ -15,7 +15,6 @@ const Category = () => {
 
     );
 
-    console.log('ID:', title);
     return (
         <div className="category-main-content">
             <HeroBanner name={

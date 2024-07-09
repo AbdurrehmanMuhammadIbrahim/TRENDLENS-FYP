@@ -33,7 +33,6 @@ const Dropdown = () => {
   }, []);
   const getCategories = () => {
     fetchDataFromApi("/api/categories?populate=*").then((res) => {
-      console.log("cat-data", res)
       setCategories(res);
     });
   };
@@ -59,7 +58,7 @@ const Dropdown = () => {
       >
 
         {categories?.data?.map((item, index) => (
-          <Link href={`/${locale.locale}/Category/${item?.attributes.title}`}
+          <Link key={index} href={`/${locale.locale}/Category/${item?.attributes.title}`}
             className='drop-Link'
           >
             <div

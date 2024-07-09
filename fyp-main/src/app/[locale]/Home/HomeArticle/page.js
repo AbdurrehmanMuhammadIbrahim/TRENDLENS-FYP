@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, } from 'react'
 import img1 from "../../../assets/img2.jpg"
-import "./Blogs.css"
+import "./HomeArticle.css"
 import Image from 'next/image'
 import { useParams } from 'next/navigation';
 import { fetchDataFromApi } from "../../../utils/api";
@@ -9,7 +9,7 @@ import { Context } from "../../../utils/context";
 import useFetch from "../../../hooks/useFetch ";
 import Link from 'next/link'
 
-export default function Blogs() {
+export default function HomeArticle() {
 
     const locale = useParams();
 
@@ -18,7 +18,6 @@ export default function Blogs() {
     const { data } = useFetch(
         `/api/articles?populate=*&locale=${locale.locale}&pagination[start]=0&pagination[limit]=4&sort=createdAt:desc`
     )
-    console.log("blg-data", data)
 
     const [label, setLabel] = useState();
     useEffect(() => {
@@ -57,7 +56,7 @@ export default function Blogs() {
             <div className='Blogs-main' style={label}>
 
                 <div className='left-Bg'>
-                    <Link style={{ textDecoration: "none", color: "black" }} href={`/${locale.locale}/Articles/${data?.data[0]?.attributes?.slug}`}>
+                    <Link style={{ textDecoration: "none", color: "black" }} href={`/${locale.locale}/Articles/${data?.data[0].attributes?.slug}`}>
 
                         <div className='Bg-Img'>
                             <img
@@ -85,7 +84,7 @@ export default function Blogs() {
 
 
                     {data?.data.slice(1)?.map((item, index) => (
-                        <Link style={{ textDecoration: "none", color: "black" }} href={`/${locale.locale}/Articles/${item.attributes?.slug}`}>
+                        <Link key={index} style={{ textDecoration: "none", color: "black" }} href={`/${locale.locale}/Articles/${item.attributes?.slug}`}>
 
                             <div className='Blog-content' key={index}>
 

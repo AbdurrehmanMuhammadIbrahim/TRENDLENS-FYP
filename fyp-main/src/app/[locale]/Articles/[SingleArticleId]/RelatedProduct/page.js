@@ -10,7 +10,6 @@ const RelatedProducts = ({ CategoryId, SingleArticleId }) => {
    
    
     );
-    console.log ("id",title)
 
     return (
         <div className="related-products">

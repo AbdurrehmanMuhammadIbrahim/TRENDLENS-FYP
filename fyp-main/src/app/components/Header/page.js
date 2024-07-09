@@ -42,14 +42,13 @@ const Header = () => {
     useEffect(() => {
         if (locale.locale === 'ur') {
             setFlex({ flexDirection: "row-reverse" })
-            setLabel({ fontSize: "18pt", gap: 30, fontFamily: 'Jameel Noori Nastaleeq', margin: "0px auto" })
+            setLabel({ fontSize: "18pt", gap: 30, fontFamily: 'Jameel Noori Nastaleeq', margin: "2px auto" })
         }
        
     }, [locale]);
 
     const toggleOn = () => {
         setToggle(toggle => !toggle)
-        // console.log("toggle click")
 
     }
 

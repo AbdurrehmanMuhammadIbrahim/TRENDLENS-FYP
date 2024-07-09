@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "@strapi-newsletter/react": "^1.0.0",
     "@strapi-newsletter/strapi": "^0.1.2",
     "axios": "^1.6.8",

@@ -14,27 +14,11 @@ const Newsletter = () => {
   const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    // const [formData, setFormData] = useState({
-    //     email: '',
-    // });
-
-    // const handleChange = (e) => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // };
 
 
     const handleSubmit = async (e) => {
-        // console.log(formData)
         e.preventDefault();
 
-
-        // const formDataToSend = new FormData(); // Use FormData for multipart data
-        // formDataToSend.append('data', JSON.stringify({
-        //     email: formData.email,
-
-
-        // }));
-        // console.log("email", formDataToSend)
 
 
         try {
@@ -99,51 +83,3 @@ placeholder="Email Address" className="form-inp" />
 };
 
 export default Newsletter;
-
-// // components/NewsletterSubscription.jsx
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const NewsletterSubscription = () => {
-//   const [email, setEmail] = useState('');
-//   const [message, setMessage] = useState('');
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post('http://localhost:1337/api/newsletters', {
-//         data: { email },
-//       });
-//       setMessage('Subscription successful! Thank you for subscribing.');
-//       setEmail('');
-//     } catch (error) {
-//       console.error('Error subscribing:', error);
-//       setMessage('Error subscribing. Please try again.');
-//     }
-//   };
-
-//   return (
-//     <div className="bg-gray-100 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
-//       <h2 className="text-2xl font-bold mb-6 text-center">Subscribe to our Newsletter</h2>
-//       {message && <p className="mb-4 text-center">{message}</p>}
-//       <form onSubmit={handleSubmit}>
-//         <div className="mb-4">
-//           <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
-//           Subscribe
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default NewsletterSubscription;
